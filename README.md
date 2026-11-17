@@ -13,7 +13,9 @@ repetir o protocolo e conferir os números das tabelas do Capítulo 6.
 
 ```
 scripts/    carga, execução das rodadas, troca de condição, coleta e análise
-configs/    configurações do Collector (agente e gateway)
+configs/
+  agente/      docker-compose e configurações do Collector no nó (padrão e otimizada)
+  servidor/    docker-compose, Prometheus, Loki, Grafana, Alertmanager e configurações do gateway
 dados/
   execucoes/   por execução: run<NOME>.sa (sar) e overhead_<NOME>_stats.csv / _failures.csv (Locust)
   resumos/     saídas dos scripts de resumo, de detecção e de retenção de traces
@@ -73,12 +75,14 @@ Prometheus, `locust`, `sar` (sysstat), `stress-ng` e Python 3.
    export PROM=http://<IP do servidor>:9090
    export GATEWAY_SSH=ubuntu@<IP do servidor>
    export GATEWAY_SSH_KEY=~/chave.pem  # chmod 400
+   export DB_PASSWORD=...              # senha do usuário do MariaDB lido pelo agente (receiver mysql)
+   export GRAFANA_ADMIN_PASSWORD=...   # senha do admin do Grafana (docker-compose do servidor)
    ```
 
-2. Copie os scripts para o `$HOME` do nó e coloque em `configs/` os arquivos de origem que
-   `trocar_agente.sh` e `trocar_gateway.sh` esperam (`otel-collector-agent-config.PADRAO.yaml`,
-   `otel-collector-agent-config.OTIM.yaml`, `otel-collector-config.PADRAO.yaml`, `.TAIL.yaml`,
-   `.TAIL30.yaml` e `.PROB.yaml`).
+2. Copie os scripts para o `$HOME` do nó. Os arquivos de origem que `trocar_agente.sh` e
+   `trocar_gateway.sh` esperam estão em `configs/agente/` (`otel-collector-agent-config.PADRAO.yaml` e
+   `.OTIM.yaml`) e em `configs/servidor/` (`otel-collector-config.PADRAO.yaml`, `.TAIL.yaml`, `.TAIL30.yaml` e
+   `.PROB.yaml`). No agente, passe `DB_PASSWORD` ao contêiner (`environment: - DB_PASSWORD=${DB_PASSWORD}`).
 
 3. Execute um cenário inteiro, na ordem sorteada com a semente da tabela abaixo:
 
