@@ -1,0 +1,115 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+  # Métricas do próprio host AWS (CPU, memória, disco, rede) onde roda o
+  # Servidor de Observabilidade — para o Dashboard 2 (saúde da infra).
+  hostmetrics:
+    collection_interval: 30s   # OTIMIZADO: era 15s
+    root_path: /hostfs
+    scrapers:
+      cpu:
+      memory:
+      disk:
+      network:
+      load:
+      filesystem:
+
+processors:
+  batch:
+    send_batch_size: 2000        # OTIMIZADO: era 1000
+    send_batch_max_size: 4000    # OTIMIZADO: era 2000
+    timeout: 10s                 # OTIMIZADO: era 5s
+
+  # OTIMIZADO (novo): tail sampling — mantém integralmente traces com erro
+  # ou com latência acima do limiar, e amostra probabilisticamente o
+  # restante, reduzindo volume sem perder traces de alto valor diagnóstico
+  # (seção 4.7, item "amostragem de traces").
+  tail_sampling:
+    decision_wait: 10s
+    num_traces: 5000
+    expected_new_traces_per_sec: 50
+    policies:
+      - name: mantem_erros
+        type: status_code
+        status_code:
+          status_codes: [ERROR]
+      - name: mantem_lentos
+        type: latency
+        latency:
+          threshold_ms: 500
+      - name: amostra_o_resto
+        type: probabilistic
+        probabilistic:
+          sampling_percentage: 10
+
+  # Alternativa ao tail_sampling, para teste comparativo (seção 4.7): amostra
+  # aleatoriamente uma fração dos traces, sem levar em conta erro ou latência.
+  probabilistic_sampler:
+    sampling_percentage: 10   # mesma taxa usada na "amostra_o_resto" do tail_sampling, para comparação justa
+
+exporters:
+  # Traces -> Jaeger via OTLP
+  otlp/jaeger:
+    endpoint: jaeger:4317
+    tls:
+      insecure: true
+
+  # Métricas encaminhadas pelo agente local (OpenStack) -> expostas em /metrics
+  prometheus:
+    endpoint: 0.0.0.0:8889
+
+  # Métricas do próprio host AWS -> endpoint SEPARADO, para o Prometheus
+  # conseguir aplicar um label estático (host_name) diferenciando a origem,
+  # sem depender de conversão de resource attributes.
+  prometheus/gateway_host:
+    endpoint: 0.0.0.0:8890
+
+  # Logs -> Loki (endpoint nativo OTLP; o exporter "loki" foi removido do otelcol-contrib)
+  otlphttp/loki:
+    endpoint: http://loki:3100/otlp
+    tls:
+      insecure: true
+    compression: gzip   # OTIMIZADO (novo)
+
+  # Útil para debug inicial: imprime tudo no log do container
+  debug:
+    verbosity: basic
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [probabilistic_sampler, batch]
+      exporters: [otlp/jaeger, debug]
+
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheus, debug]
+
+    metrics/gateway_host:
+      receivers: [hostmetrics]
+      processors: [batch]
+      exporters: [prometheus/gateway_host, debug]
+
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp/loki, debug]
+
+  # Sem isso, o endpoint de métricas internas (porta 8888) só escuta em
+  # localhost DENTRO do container, e o Prometheus (outro container) não
+  # consegue alcançá-lo pelo nome do serviço na rede Docker.
+  telemetry:
+    metrics:
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: 0.0.0.0
+                port: 8888

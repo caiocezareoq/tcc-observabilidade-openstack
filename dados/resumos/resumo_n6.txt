@@ -1,0 +1,43 @@
+
+## Por condição: média ± desvio-padrão (n execuções)
+
+| Condição | n | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s | Falhas |
+|---|---|---|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 32.2 ± 6.6 | 11.27 ± 0.77 | 10.1 ± 4.1 | 76 ± 2 | 334 ± 13 | 442 ± 16 | 8.68 ± 0.11 | 27 ± 6 |
+| D (otimizada, tail sampling, decision_wait 30 s) | 5 | 30.1 ± 4.5 | 11.15 ± 0.78 | 8.2 ± 3.7 | 76 ± 1 | 348 ± 8 | 488 ± 81 | 8.56 ± 0.06 | 29 ± 7 |
+
+## Diferenças pareadas por bloco: média [IC 95%]
+
+| Comparação | blocos | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s |
+|---|---|---|---|---|---|---|---|---|
+| D − B | 5 | -2.1 [-6.7; +2.5] | -0.12 [-0.38; +0.15] | -1.9 [-5.6; +1.8] | +0 [-2; +3] | +14 [-0; +28] | +46 [-48; +140] | -0.13 [-0.21; -0.04] |
+
+Execuções com falhas de requisição: {'n6_B1': 33, 'n6_B2': 32, 'n6_B3': 28, 'n6_B4': 22, 'n6_B5': 18, 'n6_D1': 35, 'n6_D2': 34, 'n6_D3': 19, 'n6_D4': 25, 'n6_D5': 34}
+
+## Servidor de Observabilidade (AWS), por execução
+
+| Execução | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|
+| n6_B1 | 7.2 | 1.61 | 5.9 |
+| n6_B2 | 5.1 | 1.35 | 5.8 |
+| n6_B3 | 10.7 | 1.36 | 5.7 |
+| n6_B4 | 3.8 | 1.48 | 5.7 |
+| n6_B5 | 7.0 | 2.25 | 5.8 |
+| n6_D1 | 16.4 | 1.51 | 5.1 |
+| n6_D2 | 8.2 | 1.75 | 5.0 |
+| n6_D3 | 2.9 | 1.32 | 5.2 |
+| n6_D4 | 6.8 | 1.73 | 5.1 |
+| n6_D5 | 3.6 | 1.45 | 5.6 |
+
+## Servidor de Observabilidade (AWS): média ± desvio-padrão (valores válidos)
+
+| Condição | n | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| B (padrão) | 5 | 6.8 ± 2.6 (n=5) | 1.61 ± 0.37 (n=5) | 5.8 ± 0.1 (n=5) |
+| D (otimizada, tail sampling, decision_wait 30 s) | 5 | 7.6 ± 5.4 (n=5) | 1.55 ± 0.18 (n=5) | 5.2 ± 0.3 (n=5) |
+
+## Servidor: diferenças pareadas por bloco, média [IC 95%]
+
+| Comparação | blocos | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| D − B | 5 | +0.8 [-7.3; +9.0] | -0.06 [-0.63; +0.52] | -0.6 [-0.9; -0.2] |

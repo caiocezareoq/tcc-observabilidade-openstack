@@ -1,0 +1,26 @@
+
+## Por execução
+
+| Execução | Falha | CPU do nó (%): base / pico / 1º sinal (s) | Memória do nó (GiB): base / pico / 1º sinal (s) | 1º erro (s) | 1º aviso Keystone (s) | erro de fundo (linhas/min) | traces curtos ~3 s | com aviso Keystone ±5 s |
+|---|---|---|---|---|---|---|---|---|
+| n6_B1 | keystone | 24,7 / 40,9 / sem sinal | 12,9 / 13,4 / sem sinal | 3 | 3 | 27,0 | 2 | 2 |
+| n6_B2 | keystone | 28,5 / 40,6 / sem sinal | 12,9 / 12,7 / sem sinal | 1 | 5 | 22,0 | 4 | 4 |
+| n6_B3 | keystone | 21,1 / 36,1 / sem sinal | 12,3 / 12,4 / sem sinal | 1 | 1 | 24,5 | 3 | 3 |
+| n6_B4 | keystone | 10,9 / 27,1 / 15 | 11,2 / 11,5 / sem sinal | 8 | 8 | 46,0 | 1 | 1 |
+| n6_B5 | keystone | 11,9 / 28,3 / sem sinal | 11,3 / 11,5 / sem sinal | 3 | 9 | 24,0 | 0 | 0 |
+| n6_D1 | keystone | 21,9 / 38,6 / sem sinal | 13,2 / 13,2 / sem sinal | 2 | 2 | 0,0 | 4 | 4 |
+| n6_D2 | keystone | 20,6 / 34,1 / 60 | 12,5 / 12,6 / sem sinal | 2 | 2 | 1,0 | 5 | 5 |
+| n6_D3 | keystone | 21,1 / 27,1 / sem sinal | 11,8 / 11,7 / sem sinal | 6 | 6 | 0,0 | 0 | 0 |
+| n6_D4 | keystone | 17,4 / 30,2 / sem sinal | 11,5 / 11,5 / sem sinal | 10 | 10 | 1,0 | 1 | 1 |
+| n6_D5 | keystone | 9,1 / 29,3 / 15 | 11,3 / 11,5 / sem sinal | 2 | 2 | 0,0 | 4 | 4 |
+
+## Por condição: média ± desvio-padrão do tempo até o 1º sinal (s), e detecções/execuções
+
+| Cenário (prefixo) | Condição | CPU do nó (%) | Memória do nó (GiB) | 1º aviso Keystone |
+|---|---|---|---|---|
+| n6_ | B | 15 ± 0 (1/5) | sem sinal (0/5) | 5 ± 3 (5/5) |
+| n6_ | D | 38 ± 32 (2/5) | sem sinal (0/5) | 4 ± 3 (5/5) |
+
+Traces curtos de ~3 s na janela da falha: 24; com aviso do Keystone no Loki a ±5 s: 24 (100%).
+
+Leitura: 'sem sinal' = a série não passou de baseline + 3 desvios por dois pontos seguidos; não prova ausência de efeito. O tempo é até o primeiro sinal visível nos dados, não até um alerta.

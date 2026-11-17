@@ -1,0 +1,8 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,Keystone - Auth (token issuance),CatchResponseError('Auth failed: 502'),3,2026-10-15T14:13:02Z,2026-10-15T14:13:02Z
+GET,Glance - List Images,HTTPError('401 Client Error: Unauthorized for url: Glance - List Images'),1,2026-10-15T14:13:14Z,2026-10-15T14:13:14Z
+GET,Nova - List Servers,HTTPError('503 Server Error: Service Unavailable for url: Nova - List Servers'),3,2026-10-15T14:13:07Z,2026-10-15T14:13:12Z
+POST,Nova - Create Server (provisionamento),CatchResponseError('Create failed: 503'),2,2026-10-15T14:13:16Z,2026-10-15T14:13:18Z
+POST,Keystone - Auth (token issuance),CatchResponseError('Auth failed: 503'),21,2026-10-15T14:13:05Z,2026-10-15T14:13:18Z
+GET,Neutron - List Ports,HTTPError('503 Server Error: Service Unavailable for url: Neutron - List Ports'),2,2026-10-15T14:13:02Z,2026-10-15T14:13:17Z
+GET,Neutron - List Networks,HTTPError('503 Server Error: Service Unavailable for url: Neutron - List Networks'),2,2026-10-15T14:13:07Z,2026-10-15T14:13:10Z

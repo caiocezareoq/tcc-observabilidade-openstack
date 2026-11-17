@@ -1,0 +1,20 @@
+
+## Por execução
+
+| Execução | Falha | CPU do nó (%): base / pico / 1º sinal (s) | Memória do nó (GiB): base / pico / 1º sinal (s) | 1º erro (s) | 1º aviso Keystone (s) | erro de fundo (linhas/min) | traces curtos ~3 s | com aviso Keystone ±5 s |
+|---|---|---|---|---|---|---|---|---|
+| w2_D1 | keystone | 20,9 / 36,9 / 15 | 12,9 / 13,3 / sem sinal | 2 | 2 | 0,0 | 1 | 1 |
+| w2_D2 | keystone | 24,7 / 36,4 / sem sinal | 13,0 / 13,0 / sem sinal | 5 | 5 | 0,5 | 7 | 7 |
+| w2_D3 | keystone | 26,4 / 37,5 / sem sinal | 12,8 / 12,9 / sem sinal | 2 | 2 | 40,0 | 3 | 3 |
+| w2_D4 | keystone | 25,5 / 41,2 / sem sinal | 12,9 / 12,8 / sem sinal | 2 | 2 | 0,5 | 8 | 8 |
+| w2_D5 | keystone | 23,9 / 35,0 / sem sinal | 12,4 / 12,4 / sem sinal | 2 | 2 | 0,0 | 2 | 2 |
+
+## Por condição: média ± desvio-padrão do tempo até o 1º sinal (s), e detecções/execuções
+
+| Cenário (prefixo) | Condição | CPU do nó (%) | Memória do nó (GiB) | 1º aviso Keystone |
+|---|---|---|---|---|
+| w2_ | D | 15 ± 0 (1/5) | sem sinal (0/5) | 3 ± 1 (5/5) |
+
+Traces curtos de ~3 s na janela da falha: 21; com aviso do Keystone no Loki a ±5 s: 21 (100%).
+
+Leitura: 'sem sinal' = a série não passou de baseline + 3 desvios por dois pontos seguidos; não prova ausência de efeito. O tempo é até o primeiro sinal visível nos dados, não até um alerta.

@@ -1,0 +1,159 @@
+Resumo Cenario 1
+
+(openstack-venv) usuario@maquina:~$ python3 resumir_rodada2.py --iface enp5s0 --skip 2 --conds BC --prefixo n1_ --prom http://IP_DO_SERVIDOR:9090 --log medicao_log.csv
+
+## Por condição: média ± desvio-padrão (n execuções)
+
+| Condição | n | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s | Falhas |
+|---|---|---|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 35.9 ± 1.4 | 11.34 ± 0.59 | 10.4 ± 2.6 | 76 ± 2 | 338 ± 11 | 410 ± 10 | 8.61 ± 0.09 | 0 ± 0 |
+| C (otimizada) | 5 | 36.4 ± 2.8 | 11.15 ± 0.23 | 10.2 ± 2.5 | 75 ± 1 | 328 ± 8 | 404 ± 11 | 8.67 ± 0.09 | 0 ± 0 |
+
+## Diferenças pareadas por bloco: média [IC 95%]
+
+| Comparação | blocos | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s |
+|---|---|---|---|---|---|---|---|---|
+| C − B | 5 | +0.5 [-4.4; +5.4] | -0.18 [-0.98; +0.61] | -0.3 [-1.0; +0.4] | -0 [-2; +1] | -10 [-25; +5] | -6 [-13; +1] | +0.06 [-0.13; +0.25] |
+
+Execuções com falhas de requisição: {'n1_B3': 1}
+
+## Servidor de Observabilidade (AWS), por execução
+
+| Execução | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|
+| n1_B1 | 5.8 | 1.61 | 5.7 |
+| n1_B2 | 4.9 | 1.88 | 5.9 |
+| n1_B3 | 2.5 | 1.33 | 5.8 |
+| n1_B4 | 4.4 | 1.34 | 5.5 |
+| n1_B5 | 18.8 | 1.71 | 6.2 |
+| n1_C1 | 2.3 | 1.60 | 5.0 |
+| n1_C2 | 2.3 | 1.33 | 5.4 |
+| n1_C3 | 3.4 | 1.82 | 4.9 |
+| n1_C4 | 2.1 | 1.41 | 5.4 |
+| n1_C5 | 13.7 | 1.25 | 5.2 |
+
+## Servidor de Observabilidade (AWS): média ± desvio-padrão (valores válidos)
+
+| Condição | n | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| B (padrão) | 5 | 7.3 ± 6.6 (n=5) | 1.58 ± 0.24 (n=5) | 5.8 ± 0.2 (n=5) |
+| C (otimizada) | 5 | 4.8 ± 5.0 (n=5) | 1.48 ± 0.23 (n=5) | 5.2 ± 0.2 (n=5) |
+
+
+Resumo Cenario 2
+
+(openstack-venv) usuario@maquina:~$ python3 resumir_rodada2.py --iface enp5s0 --skip 2 --conds BC --prefixo n2_ --prom http://IP_DO_SERVIDOR:9090 --log medicao_log.csv
+
+## Por condição: média ± desvio-padrão (n execuções)
+
+| Condição | n | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s | Falhas |
+|---|---|---|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 30.0 ± 4.0 | 11.28 ± 0.13 | 12.6 ± 0.3 | 76 ± 3 | 338 ± 11 | 454 ± 18 | 8.69 ± 0.10 | 36 ± 9 |
+| C (otimizada) | 5 | 31.7 ± 3.8 | 11.21 ± 0.10 | 12.4 ± 0.3 | 74 ± 2 | 344 ± 13 | 522 ± 115 | 8.59 ± 0.11 | 40 ± 14 |
+
+## Diferenças pareadas por bloco: média [IC 95%]
+
+| Comparação | blocos | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s |
+|---|---|---|---|---|---|---|---|---|
+| C − B | 5 | +1.7 [-2.5; +6.0] | -0.07 [-0.28; +0.14] | -0.2 [-1.0; +0.6] | -2 [-7; +2] | +6 [-5; +17] | +68 [-92; +228] | -0.10 [-0.25; +0.06] |
+
+Execuções com falhas de requisição: {'n2_B1': 24, 'n2_B2': 49, 'n2_B3': 39, 'n2_B4': 33, 'n2_B5': 36, 'n2_C1': 48, 'n2_C2': 42, 'n2_C3': 27, 'n2_C4': 26, 'n2_C5': 58}
+
+## Servidor de Observabilidade (AWS), por execução
+
+| Execução | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|
+| n2_B1 | 5.6 | 1.46 | 5.6 |
+| n2_B2 | 2.9 | 1.35 | 5.5 |
+| n2_B3 | 5.7 | 1.73 | 6.1 |
+| n2_B4 | 2.9 | 1.39 | 5.8 |
+| n2_B5 | 2.8 | 1.33 | 5.8 |
+| n2_C1 | 4.7 | 1.15 | 5.2 |
+| n2_C2 | 2.5 | 1.25 | 5.0 |
+| n2_C3 | 2.4 | 1.34 | 4.8 |
+| n2_C4 | 5.5 | 2.03 | 5.3 |
+| n2_C5 | 2.3 | 1.28 | 5.0 |
+
+## Servidor de Observabilidade (AWS): média ± desvio-padrão (valores válidos)
+
+| Condição | n | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| B (padrão) | 5 | 4.0 ± 1.5 (n=5) | 1.45 ± 0.16 (n=5) | 5.7 ± 0.2 (n=5) |
+| C (otimizada) | 5 | 3.5 ± 1.5 (n=5) | 1.41 ± 0.35 (n=5) | 5.1 ± 0.2 (n=5) |
+
+Resumo Cenario 3
+
+(openstack-venv) usuario@maquina:~$ python3 resumir_rodada2.py --iface enp5s0 --skip 2 --conds BC --prefixo n3_ --prom http://IP_DO_SERVIDOR:9090 --log medicao_log.csv
+
+## Por condição: média ± desvio-padrão (n execuções)
+
+| Condição | n | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s | Falhas |
+|---|---|---|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 39.8 ± 3.1 | 11.23 ± 0.06 | 12.2 ± 0.6 | 77 ± 1 | 342 ± 4 | 462 ± 49 | 8.68 ± 0.04 | 0 ± 0 |
+| C (otimizada) | 5 | 39.2 ± 3.4 | 11.21 ± 0.08 | 12.0 ± 0.4 | 76 ± 1 | 336 ± 11 | 446 ± 40 | 8.64 ± 0.05 | 0 ± 0 |
+
+## Diferenças pareadas por bloco: média [IC 95%]
+
+| Comparação | blocos | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s |
+|---|---|---|---|---|---|---|---|---|
+| C − B | 5 | -0.6 [-2.6; +1.5] | -0.02 [-0.07; +0.03] | -0.2 [-1.1; +0.7] | -1 [-2; +1] | -6 [-20; +8] | -16 [-47; +15] | -0.03 [-0.12; +0.05] |
+
+Execuções com falhas de requisição: {'n3_C2': 1}
+
+## Servidor de Observabilidade (AWS), por execução
+
+| Execução | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|
+| n3_B1 | 2.7 | 1.40 | 5.4 |
+| n3_B2 | 2.8 | 1.38 | 6.3 |
+| n3_B3 | 2.8 | 1.41 | 5.2 |
+| n3_B4 | 6.5 | 2.11 | 5.2 |
+| n3_B5 | 2.6 | 1.45 | 5.4 |
+| n3_C1 | 5.8 | 1.74 | 4.8 |
+| n3_C2 | 5.3 | 1.93 | 4.9 |
+| n3_C3 | 2.3 | 1.47 | 5.4 |
+| n3_C4 | 2.2 | 1.35 | 5.0 |
+| n3_C5 | 2.3 | 1.40 | 5.1 |
+
+## Servidor de Observabilidade (AWS): média ± desvio-padrão (valores válidos)
+
+| Condição | n | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| B (padrão) | 5 | 3.5 ± 1.7 (n=5) | 1.55 ± 0.31 (n=5) | 5.5 ± 0.4 (n=5) |
+| C (otimizada) | 5 | 3.6 ± 1.8 (n=5) | 1.58 ± 0.25 (n=5) | 5.0 ± 0.2 (n=5) |
+
+
+Verificação pendente (até 27 de outubro)
+
+(openstack-venv) usuario@maquina:~$ python3 verificar_amostragem.py --prom http://IP_DO_SERVIDOR:9090 --log medicao_log_c1.csv C1 C3 C5
+python3 verificar_amostragem.py --prom http://IP_DO_SERVIDOR:9090 --log medicao_log.csv c3_C1 c3_C3 c3_C5
+
+== C1 (janela 330s, 1791829536 a 1791829866) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 86
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   21   aumento do contador: 49023
+
+== C3 (janela 330s, 1791833644 a 1791833974) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 82
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   22   aumento do contador: 51426
+
+== C5 (janela 330s, 1791839815 a 1791840145) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 86
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   22   aumento do contador: 51695
+
+== c3_C1 (janela 330s, 1792080927 a 1792081257) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 86
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   21   aumento do contador: 50559
+
+== c3_C3 (janela 330s, 1792083241 a 1792083571) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 87
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   22   aumento do contador: 47886
+
+== c3_C5 (janela 330s, 1792086123 a 1792086453) ==
+  controle (batch)   amostras na janela:   22   aumento do contador: 85
+  tail_sampling      amostras na janela:    0   aumento do contador: nan
+  probabilistic      amostras na janela:   21   aumento do contador: 46623

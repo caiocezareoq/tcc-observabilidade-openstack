@@ -1,0 +1,36 @@
+
+## Por execução
+
+| Execução | Falha | CPU do nó (%): base / pico / 1º sinal (s) | Memória do nó (GiB): base / pico / 1º sinal (s) | 1º erro (s) | 1º aviso Keystone (s) | erro de fundo (linhas/min) | traces curtos ~3 s | com aviso Keystone ±5 s |
+|---|---|---|---|---|---|---|---|---|
+| n2_B1 | keystone | 14,7 / 29,3 / sem sinal | 11,9 / 12,2 / sem sinal | 2 | 2 | 27,5 | 0 | 0 |
+| n2_B2 | keystone | 15,7 / 27,2 / sem sinal | 11,9 / 12,2 / sem sinal | 2 | 2 | 30,5 | 0 | 0 |
+| n2_B3 | keystone | 13,3 / 30,8 / sem sinal | 12,1 / 12,3 / sem sinal | 3 | 5 | 44,0 | 0 | 0 |
+| n2_B4 | keystone | 20,4 / 36,0 / 60 | 11,9 / 12,2 / sem sinal | 2 | 2 | 27,0 | 0 | 0 |
+| n2_B5 | keystone | 16,6 / 34,6 / sem sinal | 12,1 / 12,4 / sem sinal | 2 | 2 | 21,5 | 0 | 0 |
+| n2_C1 | keystone | 12,2 / 30,2 / 15 | 11,8 / 12,4 / sem sinal | 3 | 3 | 1,0 | 0 | 0 |
+| n2_C2 | keystone | 12,4 / 30,9 / 45 | 11,9 / 12,0 / sem sinal | 1 | 1 | 20,0 | 0 | 0 |
+| n2_C3 | keystone | 20,9 / 36,2 / sem sinal | 12,0 / 12,3 / sem sinal | 2 | 2 | 0,0 | 0 | 0 |
+| n2_C4 | keystone | 19,9 / 38,2 / 15 | 12,0 / 12,4 / sem sinal | 3 | 3 | 0,5 | 0 | 0 |
+| n2_C5 | keystone | 15,4 / 34,2 / 15 | 12,1 / 12,2 / sem sinal | 2 | 2 | 0,0 | 0 | 0 |
+| n3_B1 | stress | 13,0 / 54,0 / 30 | 11,9 / 13,0 / 30 | 5 | sem dados | 20,0 | 0 | 0 |
+| n3_B2 | stress | 15,9 / 56,7 / 15 | 12,0 / 13,2 / 30 | 6 | sem dados | 24,0 | 0 | 0 |
+| n3_B3 | stress | 20,2 / 49,8 / 45 | 11,8 / 13,0 / 45 | 4 | sem dados | 31,0 | 0 | 0 |
+| n3_B4 | stress | 23,4 / 54,8 / 45 | 11,8 / 13,0 / 30 | 3 | sem dados | 27,0 | 0 | 0 |
+| n3_B5 | stress | 21,8 / 60,6 / 30 | 11,7 / 13,0 / 30 | 8 | sem dados | 27,5 | 0 | 0 |
+| n3_C1 | stress | 13,6 / 43,0 / 15 | 11,9 / 13,3 / 60 | 58 | sem dados | 0,5 | 0 | 0 |
+| n3_C2 | stress | 10,6 / 42,1 / 15 | 11,8 / 13,0 / 60 | sem dados | sem dados | 0,0 | 0 | 0 |
+| n3_C3 | stress | 16,0 / 46,3 / 45 | 12,0 / 12,8 / sem sinal | 33 | sem dados | 0,0 | 0 | 0 |
+| n3_C4 | stress | 19,7 / 49,0 / 15 | 11,8 / 12,9 / 60 | sem dados | sem dados | 1,0 | 0 | 0 |
+| n3_C5 | stress | 23,4 / 52,6 / 45 | 11,8 / 12,9 / 45 | sem dados | sem dados | 40,0 | 0 | 0 |
+
+## Por condição: média ± desvio-padrão do tempo até o 1º sinal (s), e detecções/execuções
+
+| Cenário (prefixo) | Condição | CPU do nó (%) | Memória do nó (GiB) | 1º aviso Keystone |
+|---|---|---|---|---|
+| n2_ | B | 60 ± 0 (1/5) | sem sinal (0/5) | 2 ± 1 (5/5) |
+| n2_ | C | 22 ± 15 (4/5) | sem sinal (0/5) | 2 ± 1 (5/5) |
+| n3_ | B | 33 ± 13 (5/5) | 33 ± 7 (5/5) | sem sinal (0/5) |
+| n3_ | C | 27 ± 16 (5/5) | 56 ± 8 (4/5) | sem sinal (0/5) |
+
+Leitura: 'sem sinal' = a série não passou de baseline + 3 desvios por dois pontos seguidos; não prova ausência de efeito. O tempo é até o primeiro sinal visível nos dados, não até um alerta.

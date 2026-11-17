@@ -1,0 +1,1217 @@
+Rótulos no Loki: service_name
+Seletor de logs usado: {service_name=~".+"}
+
+
+## Jaeger por execução (lento = duração >= 500 ms)
+
+| Execução | traces | com erro | lentos | traces na falha | erro na falha | lentos na falha |
+|---|---|---|---|---|---|---|
+| c2_B1 | 2592 | 0 | 194 | 634 | 0 | 52 |
+| c2_B2 | 2563 | 0 | 205 | 612 | 0 | 65 |
+| c2_B3 | 2562 | 0 | 201 | 639 | 0 | 51 |
+| c2_B4 | 2547 | 0 | 219 | 652 | 0 | 55 |
+| c2_B5 | 2562 | 0 | 211 | 635 | 0 | 62 |
+| c2_C1 | 262 | 0 | 25 | 59 | 0 | 6 |
+| c2_C2 | 267 | 0 | 31 | 57 | 0 | 6 |
+| c2_C3 | 254 | 0 | 18 | 56 | 0 | 4 |
+| c2_C4 | 291 | 0 | 29 | 66 | 0 | 10 |
+| c2_C5 | 254 | 0 | 19 | 42 | 0 | 2 |
+
+### Traces lentos (início relativo à execução e à falha)
+
+c2_B1: +2s do início (fora da falha), 9447 ms, WSGI_POST_/v2.1/servers, 463 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +2s do início (fora da falha), 12740 ms, WSGI_POST_/v2.1/servers, 647 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +5s do início (fora da falha), 8573 ms, WSGI_POST_/v2.1/servers, 503 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +8s do início (fora da falha), 9486 ms, WSGI_DELETE_/v2.1/servers/9b6c3021-921e-4795-be1c-37d854af5b4b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +8s do início (fora da falha), 9878 ms, WSGI_DELETE_/v2.1/servers/c3542569-2151-456a-91c9-06bbe870d99c, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +9s do início (fora da falha), 12649 ms, WSGI_POST_/v2.1/servers, 596 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +10s do início (fora da falha), 8557 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +12s do início (fora da falha), 8833 ms, WSGI_DELETE_/v2.1/servers/01fc3866-32c5-4662-a2da-595c0e685ef6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +14s do início (fora da falha), 10008 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +16s do início (fora da falha), 9442 ms, WSGI_DELETE_/v2.1/servers/6c38eead-5a68-4393-95f6-8e971fa9d67e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +17s do início (fora da falha), 8671 ms, WSGI_DELETE_/v2.1/servers/acf8d137-6c07-4a5b-8c95-eb1d53ef8ea7, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +20s do início (fora da falha), 6779 ms, WSGI_DELETE_/v2.1/servers/fbf54472-b449-4a8a-b966-dff937b246bf, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +25s do início (fora da falha), 12742 ms, WSGI_POST_/v2.1/servers, 606 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +30s do início (fora da falha), 12318 ms, WSGI_POST_/v2.1/servers, 595 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +31s do início (fora da falha), 9472 ms, WSGI_DELETE_/v2.1/servers/d5780548-0b9c-43e7-9822-ba64abf30ec2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +33s do início (fora da falha), 12656 ms, WSGI_POST_/v2.1/servers, 602 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +33s do início (fora da falha), 9717 ms, WSGI_POST_/v2.1/servers, 496 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +33s do início (fora da falha), 14963 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +36s do início (fora da falha), 15006 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +36s do início (fora da falha), 9133 ms, WSGI_DELETE_/v2.1/servers/d5a32164-749f-4e80-b35d-4c5074ac4e43, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +39s do início (fora da falha), 9424 ms, WSGI_DELETE_/v2.1/servers/969020c2-c9cb-468d-8d1c-b7f52aae0096, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +39s do início (fora da falha), 9949 ms, WSGI_DELETE_/v2.1/servers/9d0ab7f4-bb95-40bf-8a0a-f060991d1234, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +39s do início (fora da falha), 9706 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +40s do início (fora da falha), 11798 ms, WSGI_DELETE_/v2.1/servers/f45e2554-8847-458f-a260-f5ee381eddc3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +41s do início (fora da falha), 8168 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +42s do início (fora da falha), 11719 ms, WSGI_DELETE_/v2.1/servers/5df5852f-b02f-4956-af0e-750bf60c7158, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +43s do início (fora da falha), 9714 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +44s do início (fora da falha), 8574 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +45s do início (fora da falha), 8666 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +46s do início (fora da falha), 9833 ms, WSGI_DELETE_/v2.1/servers/caec5f04-b039-44e8-bc73-c689b2000146, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +46s do início (fora da falha), 14462 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +46s do início (fora da falha), 9479 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +53s do início (fora da falha), 11252 ms, WSGI_DELETE_/v2.1/servers/93c9a0d6-2f45-48e7-a6d7-52d4c9e649aa, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +53s do início (fora da falha), 8376 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +59s do início (fora da falha), 12750 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +63s do início (fora da falha), 12396 ms, WSGI_POST_/v2.1/servers, 595 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +64s do início (fora da falha), 8360 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +65s do início (fora da falha), 9520 ms, WSGI_DELETE_/v2.1/servers/7fb20bc9-4ce5-450b-889f-269b5311dad6, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +68s do início (fora da falha), 9499 ms, WSGI_POST_/v2.1/servers, 498 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +70s do início (fora da falha), 9236 ms, WSGI_DELETE_/v2.1/servers/eeaa3aa2-e8e9-496b-b85f-022b603954db, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +71s do início (fora da falha), 8638 ms, WSGI_DELETE_/v2.1/servers/b52599a6-dfb2-469f-93bd-b37a285e7e0d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +74s do início (fora da falha), 9150 ms, WSGI_DELETE_/v2.1/servers/38a8ad9f-04f8-44ef-bef2-efae36249c44, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +75s do início (fora da falha), 8385 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +77s do início (fora da falha), 8623 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +77s do início (fora da falha), 15719 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +79s do início (fora da falha), 16841 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +81s do início (fora da falha), 8477 ms, WSGI_DELETE_/v2.1/servers/aeae14bb-422b-4fab-9d13-0c57593f999e, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +82s do início (fora da falha), 8889 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +82s do início (fora da falha), 9108 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +83s do início (fora da falha), 8878 ms, WSGI_DELETE_/v2.1/servers/ced0567e-1dfb-4734-9098-b3aed40c41cc, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +83s do início (fora da falha), 12479 ms, WSGI_DELETE_/v2.1/servers/c85d521c-58c6-4ba5-902b-05cc0092376b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +84s do início (fora da falha), 9339 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +85s do início (fora da falha), 11459 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +86s do início (fora da falha), 11594 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +86s do início (fora da falha), 13659 ms, WSGI_DELETE_/v2.1/servers/15808045-ebe6-4c29-b347-937182a29734, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +87s do início (fora da falha), 10479 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +89s do início (fora da falha), 8887 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +93s do início (fora da falha), 13330 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +95s do início (fora da falha), 14655 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +99s do início (fora da falha), 10121 ms, WSGI_DELETE_/v2.1/servers/4b9fc76c-7afb-423b-9426-ebc52df67460, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +101s do início (fora da falha), 12589 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +102s do início (fora da falha), 11430 ms, WSGI_DELETE_/v2.1/servers/bbb8ea23-5a0f-4670-8284-253b9f474aa0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +103s do início (fora da falha), 9052 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +107s do início (fora da falha), 9333 ms, WSGI_DELETE_/v2.1/servers/950dee6e-3972-41f2-ae57-07791c1f55c9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +110s do início (fora da falha), 15210 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +111s do início (fora da falha), 8950 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +113s do início (fora da falha), 8921 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +113s do início (fora da falha), 16157 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +115s do início (fora da falha), 16545 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +116s do início (fora da falha), 12015 ms, WSGI_DELETE_/v2.1/servers/fed178e8-7a9b-477e-b31b-8aa625c4c311, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +117s do início (fora da falha), 9048 ms, WSGI_DELETE_/v2.1/servers/705a6fe9-e638-431e-9eea-5e801b1075d0, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +118s do início (fora da falha), 16136 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +119s do início (fora da falha), 9047 ms, WSGI_DELETE_/v2.1/servers/b5842115-c7c1-4230-87b5-5341c57c454d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +120s do início (fora da falha), 12966 ms, WSGI_DELETE_/v2.1/servers/17d60c10-4974-4158-8b35-31588f52e76d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +121s do início (DURANTE a falha), 9282 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +121s do início (DURANTE a falha), 692 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B1: +121s do início (DURANTE a falha), 13337 ms, WSGI_DELETE_/v2.1/servers/f209008f-33e2-492d-84c5-fcbd1716c45c, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +122s do início (DURANTE a falha), 10642 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +122s do início (DURANTE a falha), 3008 ms, WSGI_GET_/v2/images, 1 spans, serviços: glance-api
+c2_B1: +122s do início (DURANTE a falha), 10317 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +124s do início (DURANTE a falha), 3010 ms, WSGI_GET_/v2/images, 1 spans, serviços: glance-api
+c2_B1: +125s do início (DURANTE a falha), 14076 ms, WSGI_DELETE_/v2.1/servers/f921b8f5-2792-45a1-bc74-bcff7cb1c881, 34 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +128s do início (DURANTE a falha), 3012 ms, WSGI_POST_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B1: +128s do início (DURANTE a falha), 3017 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B1: +130s do início (DURANTE a falha), 16150 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +132s do início (DURANTE a falha), 15382 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +136s do início (DURANTE a falha), 12951 ms, WSGI_DELETE_/v2.1/servers/172a3328-515a-40ea-9f06-46a31473d561, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +139s do início (DURANTE a falha), 12220 ms, WSGI_DELETE_/v2.1/servers/d737c408-3b1a-421a-b7af-a5c93f536978, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +139s do início (DURANTE a falha), 8964 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +140s do início (DURANTE a falha), 8981 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +140s do início (DURANTE a falha), 9318 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +148s do início (DURANTE a falha), 12465 ms, WSGI_POST_/v2.1/servers, 602 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +149s do início (DURANTE a falha), 13671 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +151s do início (DURANTE a falha), 9025 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +154s do início (DURANTE a falha), 11271 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +154s do início (DURANTE a falha), 9430 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +155s do início (DURANTE a falha), 9334 ms, WSGI_DELETE_/v2.1/servers/b543ee44-8157-4cf4-b39a-1a5034396c84, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +155s do início (DURANTE a falha), 10509 ms, WSGI_DELETE_/v2.1/servers/9c70fbef-1c3d-48d6-a4e5-805af2f52049, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +157s do início (DURANTE a falha), 9151 ms, WSGI_DELETE_/v2.1/servers/b75bc0e3-dbfd-45bc-a760-4ed369c3e643, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +160s do início (DURANTE a falha), 8049 ms, WSGI_DELETE_/v2.1/servers/6e9ff2c5-433b-4aaf-8d97-620b709d0967, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +161s do início (DURANTE a falha), 9614 ms, WSGI_DELETE_/v2.1/servers/15bfd383-764a-4311-b529-76e71537768a, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +162s do início (DURANTE a falha), 8364 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +164s do início (DURANTE a falha), 8467 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +166s do início (DURANTE a falha), 13419 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +166s do início (DURANTE a falha), 8322 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +168s do início (DURANTE a falha), 16745 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +169s do início (DURANTE a falha), 8458 ms, WSGI_DELETE_/v2.1/servers/a9c1dcf9-ba01-4859-be0c-1609cb1c0b96, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +171s do início (DURANTE a falha), 8562 ms, WSGI_DELETE_/v2.1/servers/cd348b81-4b90-4005-9b61-c0b40144521d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +171s do início (DURANTE a falha), 8488 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +172s do início (DURANTE a falha), 10188 ms, WSGI_DELETE_/v2.1/servers/892dbc05-6018-4633-b9df-e7aafc987694, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +175s do início (DURANTE a falha), 13473 ms, WSGI_DELETE_/v2.1/servers/ae97d67c-f572-443c-9a46-64be0010ebb8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +175s do início (DURANTE a falha), 13816 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +176s do início (DURANTE a falha), 8595 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +176s do início (DURANTE a falha), 9483 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +181s do início (DURANTE a falha), 10716 ms, WSGI_DELETE_/v2.1/servers/81920639-1af5-4bfd-bfff-a8a9cebc03d6, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +185s do início (DURANTE a falha), 9084 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +186s do início (DURANTE a falha), 13878 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +188s do início (DURANTE a falha), 13939 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +188s do início (DURANTE a falha), 9335 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +189s do início (DURANTE a falha), 8333 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +190s do início (DURANTE a falha), 8140 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +192s do início (DURANTE a falha), 9367 ms, WSGI_DELETE_/v2.1/servers/19f34a83-22ba-49b7-92d3-b053eb6ce7a6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +192s do início (DURANTE a falha), 10706 ms, WSGI_DELETE_/v2.1/servers/8c74d586-7ac8-475c-a663-639cc6a9ef9c, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +194s do início (DURANTE a falha), 10752 ms, WSGI_DELETE_/v2.1/servers/1578eeca-bd8d-4990-ba23-a18eb79ee458, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +196s do início (DURANTE a falha), 14339 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +196s do início (DURANTE a falha), 8067 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +199s do início (fora da falha), 9620 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +201s do início (fora da falha), 9044 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +202s do início (fora da falha), 11197 ms, WSGI_DELETE_/v2.1/servers/ad7c4723-6228-4f7c-857d-e727fd857973, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +203s do início (fora da falha), 8834 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +206s do início (fora da falha), 14648 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +210s do início (fora da falha), 8928 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +210s do início (fora da falha), 14570 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +211s do início (fora da falha), 8403 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +212s do início (fora da falha), 9025 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +212s do início (fora da falha), 11394 ms, WSGI_DELETE_/v2.1/servers/a7c1bd3d-d2c7-49b5-8211-04814ccd783e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +215s do início (fora da falha), 14246 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +216s do início (fora da falha), 9066 ms, WSGI_DELETE_/v2.1/servers/21eeb6ce-c67c-41df-9f60-2c73d3561567, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +217s do início (fora da falha), 11363 ms, WSGI_DELETE_/v2.1/servers/b4f8e42d-11cd-4254-b230-8f4c3391bfa3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +219s do início (fora da falha), 14587 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +219s do início (fora da falha), 8350 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +221s do início (fora da falha), 11100 ms, WSGI_DELETE_/v2.1/servers/a8f0be17-e3f4-469d-b702-a3c3c1410820, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +224s do início (fora da falha), 14798 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +225s do início (fora da falha), 8910 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +225s do início (fora da falha), 11368 ms, WSGI_DELETE_/v2.1/servers/1f3d9094-2f45-4a90-90d6-de4db01dfcde, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +226s do início (fora da falha), 8528 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +228s do início (fora da falha), 9112 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +229s do início (fora da falha), 9753 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +230s do início (fora da falha), 11564 ms, WSGI_DELETE_/v2.1/servers/bd35b8e9-ea33-4bff-87ef-9ca4d29093d3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +232s do início (fora da falha), 10856 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +239s do início (fora da falha), 7683 ms, WSGI_DELETE_/v2.1/servers/697c72dc-3f1b-4e58-a73c-a5cd799e6220, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +239s do início (fora da falha), 8028 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +240s do início (fora da falha), 9468 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +245s do início (fora da falha), 12855 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +246s do início (fora da falha), 8297 ms, WSGI_DELETE_/v2.1/servers/138471a8-36a1-4e6d-b10f-3bb3e6e68d71, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +247s do início (fora da falha), 10041 ms, WSGI_DELETE_/v2.1/servers/effcbf35-d6ed-4fb9-9da1-4452a1635185, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +248s do início (fora da falha), 12983 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +248s do início (fora da falha), 9059 ms, WSGI_POST_/v2.1/servers, 494 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +250s do início (fora da falha), 9409 ms, WSGI_POST_/v2.1/servers, 496 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +252s do início (fora da falha), 9752 ms, WSGI_DELETE_/v2.1/servers/8b073899-5f26-4c98-ab12-f54e3ebc058a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +253s do início (fora da falha), 9158 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +254s do início (fora da falha), 9854 ms, WSGI_DELETE_/v2.1/servers/0a1af99d-51f1-4497-8bfc-adcdf5bc7fa3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +254s do início (fora da falha), 15526 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +254s do início (fora da falha), 8312 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +255s do início (fora da falha), 9437 ms, WSGI_DELETE_/v2.1/servers/63231562-c108-4f09-a36a-a15c36785271, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +255s do início (fora da falha), 20635 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +255s do início (fora da falha), 10028 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +256s do início (fora da falha), 10828 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +257s do início (fora da falha), 13167 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +257s do início (fora da falha), 9290 ms, WSGI_DELETE_/v2.1/servers/55bb4aa3-bd10-4e43-a44d-19763155bff5, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +259s do início (fora da falha), 9401 ms, WSGI_DELETE_/v2.1/servers/0ced8453-fe50-4325-ab0f-96f7f845710a, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +259s do início (fora da falha), 15202 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +261s do início (fora da falha), 12328 ms, WSGI_DELETE_/v2.1/servers/5d1a9ffb-ba30-449a-ba80-ceb828e33760, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +262s do início (fora da falha), 13131 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +263s do início (fora da falha), 13175 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +266s do início (fora da falha), 10988 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +268s do início (fora da falha), 9965 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +270s do início (fora da falha), 9602 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +273s do início (fora da falha), 14640 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +277s do início (fora da falha), 8855 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +277s do início (fora da falha), 15101 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +280s do início (fora da falha), 11439 ms, WSGI_DELETE_/v2.1/servers/f3dfa4c8-b712-4d8d-a13a-9178db9294a6, 32 spans, serviços: keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +280s do início (fora da falha), 8532 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +281s do início (fora da falha), 12672 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +283s do início (fora da falha), 8394 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +284s do início (fora da falha), 9091 ms, WSGI_DELETE_/v2.1/servers/6cd422c7-b4d8-41fe-95d7-2da30be54f9c, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +284s do início (fora da falha), 11908 ms, WSGI_DELETE_/v2.1/servers/99882d36-c9b1-47d6-a810-46b50e242641, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +288s do início (fora da falha), 9466 ms, WSGI_DELETE_/v2.1/servers/f7990067-23c6-4c08-9ee3-4e64288acf50, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +291s do início (fora da falha), 11808 ms, WSGI_POST_/v2.1/servers, 602 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +293s do início (fora da falha), 12376 ms, WSGI_POST_/v2.1/servers, 602 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +297s do início (fora da falha), 7561 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B1: +298s do início (fora da falha), 8560 ms, WSGI_DELETE_/v2.1/servers/7d0d4540-7b6f-4bcc-a05b-30a10f006ee8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B1: +300s do início (fora da falha), 7197 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B1: +300s do início (fora da falha), 9145 ms, WSGI_DELETE_/v2.1/servers/b3e92201-112a-4ff9-a6be-4f720d23e03e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +3s do início (fora da falha), 12895 ms, WSGI_POST_/v2.1/servers, 614 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +3s do início (fora da falha), 9394 ms, WSGI_POST_/v2.1/servers, 499 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +4s do início (fora da falha), 11513 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +4s do início (fora da falha), 9103 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +4s do início (fora da falha), 9598 ms, WSGI_POST_/v2.1/servers, 120 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +10s do início (fora da falha), 9303 ms, WSGI_DELETE_/v2.1/servers/d54199f7-4084-49f4-948e-87abcabbe3e9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +10s do início (fora da falha), 9607 ms, WSGI_DELETE_/v2.1/servers/cdfe2b34-bd46-49a1-8c7f-19f60c408d86, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +11s do início (fora da falha), 8303 ms, WSGI_DELETE_/v2.1/servers/d2c99f34-5bbf-49ea-8940-cab7405594fc, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +12s do início (fora da falha), 19602 ms, WSGI_POST_/v2.1/servers, 605 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +13s do início (fora da falha), 9100 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +14s do início (fora da falha), 14091 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +15s do início (fora da falha), 19638 ms, WSGI_POST_/v2.1/servers, 119 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +18s do início (fora da falha), 19485 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +18s do início (fora da falha), 14341 ms, WSGI_DELETE_/v2.1/servers/7a16a113-e1bd-4584-bd12-190d2096eb81, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +19s do início (fora da falha), 9295 ms, WSGI_DELETE_/v2.1/servers/f0238782-e2d5-45c4-879d-6d2d5a8797ba, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +19s do início (fora da falha), 9285 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +21s do início (fora da falha), 10852 ms, WSGI_DELETE_/v2.1/servers/55dd1d42-046b-45ef-b3f6-a8ada0fdafa2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +21s do início (fora da falha), 16290 ms, WSGI_DELETE_/v2.1/servers/b5c5f1cd-8c6a-4a17-bd00-8a56b44e0969, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +24s do início (fora da falha), 11341 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +24s do início (fora da falha), 11778 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +24s do início (fora da falha), 16316 ms, WSGI_DELETE_/v2.1/servers/f8096ba7-56d9-41cd-b3d3-720bd8b1c2a8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +24s do início (fora da falha), 13198 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +26s do início (fora da falha), 11783 ms, WSGI_POST_/v2.1/servers, 119 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +27s do início (fora da falha), 11561 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +27s do início (fora da falha), 12018 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +30s do início (fora da falha), 9640 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +30s do início (fora da falha), 11217 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +31s do início (fora da falha), 10620 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +32s do início (fora da falha), 10374 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +32s do início (fora da falha), 10683 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +35s do início (fora da falha), 8874 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +35s do início (fora da falha), 12319 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +38s do início (fora da falha), 9558 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +39s do início (fora da falha), 9483 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +43s do início (fora da falha), 9226 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +50s do início (fora da falha), 9503 ms, WSGI_DELETE_/v2.1/servers/daad7191-5975-46f8-ba26-1b57ea3d4297, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +51s do início (fora da falha), 12499 ms, WSGI_POST_/v2.1/servers, 596 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +51s do início (fora da falha), 8868 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +57s do início (fora da falha), 9306 ms, WSGI_DELETE_/v2.1/servers/ad75e556-ed19-4a5a-9abf-1df555dc340f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +58s do início (fora da falha), 8995 ms, WSGI_DELETE_/v2.1/servers/1f4a795d-9aaf-42e0-b0e2-c8ee68e66f21, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +60s do início (fora da falha), 12984 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +60s do início (fora da falha), 9448 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +60s do início (fora da falha), 14768 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +61s do início (fora da falha), 9258 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +64s do início (fora da falha), 14369 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +66s do início (fora da falha), 9760 ms, WSGI_DELETE_/v2.1/servers/4472866d-3323-4e5f-b842-c7007aa41bf1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +66s do início (fora da falha), 9755 ms, WSGI_DELETE_/v2.1/servers/19ed0431-e3b6-4fdd-bdb9-3b831603d251, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +67s do início (fora da falha), 11532 ms, WSGI_DELETE_/v2.1/servers/c274b98a-9e93-4936-9676-9fd5406b6d56, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +71s do início (fora da falha), 11133 ms, WSGI_DELETE_/v2.1/servers/426e38e1-2986-43dc-885c-596f07a36f1f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +71s do início (fora da falha), 8487 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +71s do início (fora da falha), 8702 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +72s do início (fora da falha), 8376 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +78s do início (fora da falha), 9148 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +78s do início (fora da falha), 17510 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +78s do início (fora da falha), 9138 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +80s do início (fora da falha), 8398 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +81s do início (fora da falha), 16562 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +83s do início (fora da falha), 9081 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +84s do início (fora da falha), 9276 ms, WSGI_DELETE_/v2.1/servers/880054de-ca97-4229-be0d-3ba53a973925, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +84s do início (fora da falha), 14323 ms, WSGI_DELETE_/v2.1/servers/2085d769-0a16-42bb-8535-7aa077aaaf1e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +84s do início (fora da falha), 16536 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +87s do início (fora da falha), 13354 ms, WSGI_DELETE_/v2.1/servers/cd4678b3-7a91-43bc-b9bb-f43021dc9815, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +91s do início (fora da falha), 13370 ms, WSGI_DELETE_/v2.1/servers/afff2169-cd64-4ad4-8c73-d76f404b6c52, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +91s do início (fora da falha), 14976 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +93s do início (fora da falha), 8142 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +95s do início (fora da falha), 9061 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +97s do início (fora da falha), 11729 ms, WSGI_DELETE_/v2.1/servers/89de8907-c233-446d-b619-e88ac09fc733, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +99s do início (fora da falha), 11419 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +102s do início (fora da falha), 9595 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +102s do início (fora da falha), 9062 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +104s do início (fora da falha), 9180 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +105s do início (fora da falha), 8606 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +107s do início (fora da falha), 13097 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +110s do início (fora da falha), 11889 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +113s do início (fora da falha), 9870 ms, WSGI_DELETE_/v2.1/servers/5ca2e3ab-be56-462d-b8f2-d2ad220fa682, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +116s do início (fora da falha), 8667 ms, WSGI_DELETE_/v2.1/servers/c406f601-d79a-4e40-b3d4-8a692fa7cef9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +117s do início (fora da falha), 9840 ms, WSGI_POST_/v2.1/servers, 527 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +118s do início (fora da falha), 9384 ms, WSGI_POST_/v2.1/servers, 458 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +118s do início (fora da falha), 12890 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +121s do início (DURANTE a falha), 525 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B2: +121s do início (DURANTE a falha), 3008 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B2: +122s do início (DURANTE a falha), 3013 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B2: +122s do início (DURANTE a falha), 10857 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +122s do início (DURANTE a falha), 3011 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B2: +123s do início (DURANTE a falha), 3011 ms, WSGI_GET_/v2/images, 1 spans, serviços: glance-api
+c2_B2: +123s do início (DURANTE a falha), 9189 ms, WSGI_DELETE_/v2.1/servers/c979e507-89d4-4b05-810b-c164a015a95c, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +125s do início (DURANTE a falha), 9560 ms, WSGI_DELETE_/v2.1/servers/cd335b3a-73e9-49aa-a873-24a018d3776a, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +125s do início (DURANTE a falha), 9729 ms, WSGI_DELETE_/v2.1/servers/938855cc-445c-40d4-864c-5887d16f01c1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +126s do início (DURANTE a falha), 3012 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B2: +127s do início (DURANTE a falha), 3009 ms, WSGI_GET_/v2/images, 1 spans, serviços: glance-api
+c2_B2: +127s do início (DURANTE a falha), 3016 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B2: +128s do início (DURANTE a falha), 7639 ms, WSGI_DELETE_/v2.1/servers/8007ca38-6dbe-4603-b711-dd2b3f191de5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +128s do início (DURANTE a falha), 2006 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B2: +132s do início (DURANTE a falha), 15590 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +133s do início (DURANTE a falha), 8763 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +134s do início (DURANTE a falha), 16049 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +136s do início (DURANTE a falha), 8530 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +137s do início (DURANTE a falha), 15604 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +138s do início (DURANTE a falha), 12332 ms, WSGI_DELETE_/v2.1/servers/d0bfa078-ee9e-422a-a40e-16a26fb8dff7, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +139s do início (DURANTE a falha), 8945 ms, WSGI_DELETE_/v2.1/servers/480c8916-0196-42e2-b89e-b2b944236ca5, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +140s do início (DURANTE a falha), 501 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B2: +140s do início (DURANTE a falha), 12703 ms, WSGI_DELETE_/v2.1/servers/4a1c4110-c69c-4703-9eb0-c4db70aef71d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +144s do início (DURANTE a falha), 13591 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +144s do início (DURANTE a falha), 9031 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +145s do início (DURANTE a falha), 9034 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +148s do início (DURANTE a falha), 16000 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +150s do início (DURANTE a falha), 10414 ms, WSGI_DELETE_/v2.1/servers/7aad8209-1adb-44ca-bcc4-6ae6fd2cf990, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +151s do início (DURANTE a falha), 8327 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +151s do início (DURANTE a falha), 8754 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +152s do início (DURANTE a falha), 15462 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +154s do início (DURANTE a falha), 12935 ms, WSGI_DELETE_/v2.1/servers/dd3f7b44-3b17-4149-9984-58cce3c906a0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +154s do início (DURANTE a falha), 9938 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +154s do início (DURANTE a falha), 10405 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +156s do início (DURANTE a falha), 9195 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +156s do início (DURANTE a falha), 9601 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +156s do início (DURANTE a falha), 9893 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +159s do início (DURANTE a falha), 12259 ms, WSGI_DELETE_/v2.1/servers/9a96dd7f-1cdd-4f67-9084-bf2c588fccc3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +160s do início (DURANTE a falha), 8571 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +168s do início (DURANTE a falha), 12422 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +169s do início (DURANTE a falha), 9217 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +169s do início (DURANTE a falha), 15705 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +170s do início (DURANTE a falha), 8525 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +173s do início (DURANTE a falha), 9527 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +174s do início (DURANTE a falha), 15368 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +175s do início (DURANTE a falha), 9268 ms, WSGI_DELETE_/v2.1/servers/93ceade2-7f12-4772-ae65-e6c04e32c61b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +175s do início (DURANTE a falha), 8118 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +175s do início (DURANTE a falha), 9449 ms, WSGI_DELETE_/v2.1/servers/13ba949a-afe0-4b51-bf3f-065ee2f3a4d2, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +175s do início (DURANTE a falha), 9936 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +175s do início (DURANTE a falha), 12597 ms, WSGI_DELETE_/v2.1/servers/e0f15a3e-09de-4273-9445-fd1d151024f9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +177s do início (DURANTE a falha), 9292 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +180s do início (DURANTE a falha), 9796 ms, WSGI_DELETE_/v2.1/servers/830b5980-a3f9-4dd1-a544-90036f3c6e41, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +180s do início (DURANTE a falha), 18171 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +181s do início (DURANTE a falha), 12243 ms, WSGI_DELETE_/v2.1/servers/6a5156eb-fccc-4288-92c0-4ce93017f60a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +183s do início (DURANTE a falha), 17423 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +185s do início (DURANTE a falha), 19033 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +185s do início (DURANTE a falha), 9403 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +185s do início (DURANTE a falha), 10271 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +186s do início (DURANTE a falha), 14986 ms, WSGI_DELETE_/v2.1/servers/78303ff1-3e2f-47ac-b45c-3f2884f9dc30, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +190s do início (DURANTE a falha), 14171 ms, WSGI_DELETE_/v2.1/servers/fe7aad60-2be7-4a23-81af-eb6487e90f31, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +191s do início (DURANTE a falha), 15739 ms, WSGI_DELETE_/v2.1/servers/421c58e6-1d66-4285-9e85-336425d99259, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +193s do início (DURANTE a falha), 10947 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +194s do início (DURANTE a falha), 11308 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +195s do início (DURANTE a falha), 10201 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +195s do início (DURANTE a falha), 10652 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +196s do início (fora da falha), 10354 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +197s do início (fora da falha), 9711 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +199s do início (fora da falha), 8546 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +201s do início (fora da falha), 15372 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +201s do início (fora da falha), 8823 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +201s do início (fora da falha), 9248 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +207s do início (fora da falha), 8128 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +207s do início (fora da falha), 12554 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +208s do início (fora da falha), 12196 ms, WSGI_DELETE_/v2.1/servers/0879365d-c1b2-48a4-bb9e-0eb4d96edf7a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +209s do início (fora da falha), 8249 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +209s do início (fora da falha), 8128 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +213s do início (fora da falha), 8278 ms, WSGI_DELETE_/v2.1/servers/d234d2bf-94ec-4f7d-8767-d30074fc4620, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +213s do início (fora da falha), 9353 ms, WSGI_DELETE_/v2.1/servers/3fed25f8-18f4-4636-93e5-a424fd24c5a1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +214s do início (fora da falha), 13557 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +216s do início (fora da falha), 9522 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +217s do início (fora da falha), 15892 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +220s do início (fora da falha), 10392 ms, WSGI_DELETE_/v2.1/servers/8452aec4-6656-4de3-a095-174630125759, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +221s do início (fora da falha), 10454 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +222s do início (fora da falha), 9655 ms, WSGI_DELETE_/v2.1/servers/3fd2fadd-45de-4a92-91c4-a6f8d3af003e, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +223s do início (fora da falha), 12674 ms, WSGI_DELETE_/v2.1/servers/4a6b628e-21bf-4f8a-b09b-0bce796270d4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +226s do início (fora da falha), 15930 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +227s do início (fora da falha), 8261 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +230s do início (fora da falha), 15008 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +232s do início (fora da falha), 14611 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +232s do início (fora da falha), 8138 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +232s do início (fora da falha), 12777 ms, WSGI_DELETE_/v2.1/servers/76b33838-8ff5-4e99-8ec9-50c99e9bf6c1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +236s do início (fora da falha), 11795 ms, WSGI_DELETE_/v2.1/servers/dd62d7d3-bb21-4f40-86b8-05e77b0488d3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +237s do início (fora da falha), 9162 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +238s do início (fora da falha), 11417 ms, WSGI_DELETE_/v2.1/servers/60290a0a-bff1-421d-afcb-b583b55c098d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +243s do início (fora da falha), 8197 ms, WSGI_POST_/v2.1/servers, 495 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +249s do início (fora da falha), 8439 ms, WSGI_DELETE_/v2.1/servers/6cfcb974-d9f1-4e51-a84c-94ffe4fffe7f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +250s do início (fora da falha), 12490 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +252s do início (fora da falha), 13755 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +256s do início (fora da falha), 12341 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +257s do início (fora da falha), 9264 ms, WSGI_DELETE_/v2.1/servers/1ee0fbff-6c7b-46cc-8983-e8598f159701, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +258s do início (fora da falha), 10509 ms, WSGI_DELETE_/v2.1/servers/9df83600-1925-451b-9ccf-f646c46d0b65, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +258s do início (fora da falha), 12452 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +260s do início (fora da falha), 10227 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +262s do início (fora da falha), 9181 ms, WSGI_DELETE_/v2.1/servers/5a3a0ac7-add6-425c-a260-d6d685cae5e4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +265s do início (fora da falha), 9131 ms, WSGI_DELETE_/v2.1/servers/4550e7b3-89d6-4578-ace2-d90b317da5be, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +267s do início (fora da falha), 8225 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +267s do início (fora da falha), 7053 ms, WSGI_DELETE_/v2.1/servers/f312a9e4-c793-4041-9630-6385267eeae3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +267s do início (fora da falha), 13426 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +273s do início (fora da falha), 8385 ms, WSGI_DELETE_/v2.1/servers/30de1666-f26e-4fc0-bd94-2525ef4b253b, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +273s do início (fora da falha), 8327 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +274s do início (fora da falha), 10208 ms, WSGI_DELETE_/v2.1/servers/a6aafbd4-5b9d-45de-88d5-a9efdb48bcbf, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +274s do início (fora da falha), 16141 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +279s do início (fora da falha), 9110 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +279s do início (fora da falha), 8445 ms, WSGI_DELETE_/v2.1/servers/c7b9c905-2697-4f99-b418-cd67c25982a5, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +280s do início (fora da falha), 16009 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +280s do início (fora da falha), 12927 ms, WSGI_DELETE_/v2.1/servers/61b5fa38-28e4-4c37-b605-da2cd4bf76af, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +286s do início (fora da falha), 9370 ms, WSGI_DELETE_/v2.1/servers/999217fd-47ce-405b-8194-165167fe95b6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +286s do início (fora da falha), 12829 ms, WSGI_DELETE_/v2.1/servers/22d30b6c-0a27-45b7-ba68-e1ed2ac6aeb2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B2: +286s do início (fora da falha), 10128 ms, WSGI_POST_/v2.1/servers, 114 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +288s do início (fora da falha), 9476 ms, WSGI_POST_/v2.1/servers, 114 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +288s do início (fora da falha), 9938 ms, WSGI_POST_/v2.1/servers, 114 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +295s do início (fora da falha), 7851 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +297s do início (fora da falha), 8837 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +298s do início (fora da falha), 10508 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B2: +299s do início (fora da falha), 11188 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B2: +300s do início (fora da falha), 13129 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +2s do início (fora da falha), 12519 ms, WSGI_POST_/v2.1/servers, 607 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +4s do início (fora da falha), 14576 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +4s do início (fora da falha), 11581 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +5s do início (fora da falha), 16706 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +8s do início (fora da falha), 9350 ms, WSGI_DELETE_/v2.1/servers/e2bbfb10-cd2e-4ccd-a6c5-a959b594f348, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +9s do início (fora da falha), 14299 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +10s do início (fora da falha), 11476 ms, WSGI_DELETE_/v2.1/servers/67c159c3-80e2-4a5d-93b8-7861e093a35c, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +10s do início (fora da falha), 8341 ms, WSGI_DELETE_/v2.1/servers/b13d138a-9fd9-4554-b7e9-3de4ad80442e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +11s do início (fora da falha), 8782 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +11s do início (fora da falha), 13484 ms, WSGI_DELETE_/v2.1/servers/ec104e74-a366-4365-b3b6-7fcbf041d173, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +12s do início (fora da falha), 9894 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +16s do início (fora da falha), 8471 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +16s do início (fora da falha), 11072 ms, WSGI_DELETE_/v2.1/servers/55df073a-1c06-4c79-9b30-3a8426d5dba8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +21s do início (fora da falha), 9132 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +22s do início (fora da falha), 14801 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +24s do início (fora da falha), 16024 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +25s do início (fora da falha), 16783 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +26s do início (fora da falha), 8800 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +27s do início (fora da falha), 9214 ms, WSGI_DELETE_/v2.1/servers/0b056ba2-f8ae-4eb7-b240-0055af777820, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +28s do início (fora da falha), 9181 ms, WSGI_POST_/v2.1/servers, 116 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +28s do início (fora da falha), 9510 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +28s do início (fora da falha), 11587 ms, WSGI_DELETE_/v2.1/servers/66c0e1d6-c107-4f77-bbfc-b6acb4c1ddb5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +29s do início (fora da falha), 9028 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +30s do início (fora da falha), 10443 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +30s do início (fora da falha), 12849 ms, WSGI_DELETE_/v2.1/servers/2eb83ed8-2229-4083-b45f-54ef9aaaf020, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +31s do início (fora da falha), 9349 ms, WSGI_POST_/v2.1/servers, 116 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +32s do início (fora da falha), 13619 ms, WSGI_DELETE_/v2.1/servers/286bc9d1-232c-4df2-8482-41a0667e1297, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +33s do início (fora da falha), 9948 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +33s do início (fora da falha), 10338 ms, WSGI_POST_/v2.1/servers, 116 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +45s do início (fora da falha), 12502 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +48s do início (fora da falha), 12512 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +52s do início (fora da falha), 9293 ms, WSGI_DELETE_/v2.1/servers/2244e467-8044-46c3-bedc-3dea986b922a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +52s do início (fora da falha), 12649 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +54s do início (fora da falha), 9297 ms, WSGI_DELETE_/v2.1/servers/10ceb5ee-4eb1-4152-b1c8-e15375edd7f3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +55s do início (fora da falha), 12962 ms, WSGI_POST_/v2.1/servers, 603 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +56s do início (fora da falha), 8435 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +58s do início (fora da falha), 9487 ms, WSGI_POST_/v2.1/servers, 496 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +58s do início (fora da falha), 15648 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +58s do início (fora da falha), 9512 ms, WSGI_DELETE_/v2.1/servers/e2613f0e-13c7-48b6-9201-6db3b9665379, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +59s do início (fora da falha), 8359 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +59s do início (fora da falha), 8026 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +61s do início (fora da falha), 16149 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +61s do início (fora da falha), 9798 ms, WSGI_DELETE_/v2.1/servers/95ff397b-0e2a-4c1f-bc37-0395c10cd6b4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +62s do início (fora da falha), 8944 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +63s do início (fora da falha), 8825 ms, WSGI_DELETE_/v2.1/servers/2f8679d4-cf32-4893-8dd4-f4b08afc84dd, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +64s do início (fora da falha), 9719 ms, WSGI_DELETE_/v2.1/servers/a1b5d443-75d6-45a7-b244-b1e4fb3e0d7d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +64s do início (fora da falha), 12404 ms, WSGI_DELETE_/v2.1/servers/90d21a0d-062d-436c-bb10-95e924b0236b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +65s do início (fora da falha), 9839 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +67s do início (fora da falha), 12960 ms, WSGI_DELETE_/v2.1/servers/cf0edfbe-0bda-4ef1-b4e2-13a0014613e1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +71s do início (fora da falha), 16536 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +76s do início (fora da falha), 12597 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +77s do início (fora da falha), 13117 ms, WSGI_DELETE_/v2.1/servers/d253c198-a822-40b9-a471-7e9428623aa9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +83s do início (fora da falha), 9417 ms, WSGI_DELETE_/v2.1/servers/4e255bb1-2c64-4104-9632-9df9f71a2251, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +89s do início (fora da falha), 12796 ms, WSGI_POST_/v2.1/servers, 608 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +90s do início (fora da falha), 9391 ms, WSGI_POST_/v2.1/servers, 497 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +92s do início (fora da falha), 9460 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +96s do início (fora da falha), 9551 ms, WSGI_DELETE_/v2.1/servers/ed7abfa9-3499-4420-9835-3f03e706f1e2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +96s do início (fora da falha), 9297 ms, WSGI_DELETE_/v2.1/servers/52421121-a90b-4dca-8e6b-58ba2f4655c1, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +97s do início (fora da falha), 12860 ms, WSGI_POST_/v2.1/servers, 607 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +98s do início (fora da falha), 9575 ms, WSGI_POST_/v2.1/servers, 494 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +98s do início (fora da falha), 9846 ms, WSGI_DELETE_/v2.1/servers/5cf2295f-7e22-4a16-b320-408728e1402f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +101s do início (fora da falha), 8280 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +104s do início (fora da falha), 9596 ms, WSGI_DELETE_/v2.1/servers/e67cf79e-caea-41ef-b1b7-0c63c0459f8d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +104s do início (fora da falha), 9924 ms, WSGI_DELETE_/v2.1/servers/d505c3d6-fed4-40cc-9fa9-024343263796, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +104s do início (fora da falha), 16918 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +105s do início (fora da falha), 17823 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +107s do início (fora da falha), 10505 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +107s do início (fora da falha), 10734 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +107s do início (fora da falha), 8388 ms, WSGI_DELETE_/v2.1/servers/3bd4a1fd-1ff9-439a-8913-70362b99942f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +110s do início (fora da falha), 11296 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +110s do início (fora da falha), 13607 ms, WSGI_DELETE_/v2.1/servers/a92a3030-081c-4863-aff2-1f0710b0e375, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +112s do início (fora da falha), 14573 ms, WSGI_DELETE_/v2.1/servers/5c729164-eaa7-4c98-ace0-ef8fd9f2766b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +113s do início (fora da falha), 10254 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +115s do início (fora da falha), 9880 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +115s do início (fora da falha), 11322 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +117s do início (fora da falha), 10311 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +118s do início (fora da falha), 10237 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +119s do início (fora da falha), 10546 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +121s do início (DURANTE a falha), 808 ms, WSGI_GET_/v2.0/ports, 1 spans, serviços: neutron-neutron-server
+c2_B3: +122s do início (DURANTE a falha), 15702 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +123s do início (DURANTE a falha), 9562 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +124s do início (DURANTE a falha), 3014 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B3: +125s do início (DURANTE a falha), 17196 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +127s do início (DURANTE a falha), 16488 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +128s do início (DURANTE a falha), 3013 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B3: +129s do início (DURANTE a falha), 12520 ms, WSGI_DELETE_/v2.1/servers/f8debf36-0b3a-4acd-8724-4c62b7d0af9e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +131s do início (DURANTE a falha), 17209 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +131s do início (DURANTE a falha), 13947 ms, WSGI_DELETE_/v2.1/servers/0e9973ac-763a-4a01-962e-7eaa28560434, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +134s do início (DURANTE a falha), 13253 ms, WSGI_DELETE_/v2.1/servers/68f2898f-82a0-4c4d-a478-2bdc601ccb61, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +136s do início (DURANTE a falha), 17132 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +137s do início (DURANTE a falha), 9726 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +137s do início (DURANTE a falha), 13987 ms, WSGI_DELETE_/v2.1/servers/b82e2f76-082a-4c56-b8db-1604234d31f7, 33 spans, serviços: keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +138s do início (DURANTE a falha), 10106 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +138s do início (DURANTE a falha), 10553 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +140s do início (DURANTE a falha), 9608 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +141s do início (DURANTE a falha), 505 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B3: +142s do início (DURANTE a falha), 526 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B3: +142s do início (DURANTE a falha), 15194 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +143s do início (DURANTE a falha), 14954 ms, WSGI_DELETE_/v2.1/servers/c92e53b5-47a8-4bea-a7e6-7d4e93dd08e1, 34 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +146s do início (DURANTE a falha), 8108 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +149s do início (DURANTE a falha), 9384 ms, WSGI_POST_/v2.1/servers, 494 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +149s do início (DURANTE a falha), 11938 ms, WSGI_DELETE_/v2.1/servers/34cf2bae-96bf-46d7-8f4d-ed5fc37897b6, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +155s do início (DURANTE a falha), 12689 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +155s do início (DURANTE a falha), 9530 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +155s do início (DURANTE a falha), 9648 ms, WSGI_DELETE_/v2.1/servers/8a407681-7c2d-42db-8dfd-d102713cc0e1, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +157s do início (DURANTE a falha), 9447 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +161s do início (DURANTE a falha), 12201 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +161s do início (DURANTE a falha), 9458 ms, WSGI_DELETE_/v2.1/servers/2ca7e674-3017-4ce2-9727-57b52072e7fe, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +161s do início (DURANTE a falha), 9871 ms, WSGI_DELETE_/v2.1/servers/153776a0-d197-4ed3-ba5d-26a378887684, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +161s do início (DURANTE a falha), 9660 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +163s do início (DURANTE a falha), 9831 ms, WSGI_DELETE_/v2.1/servers/93f242f0-f44c-41c8-92bf-e1d5656cc7f9, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +167s do início (DURANTE a falha), 8991 ms, WSGI_DELETE_/v2.1/servers/52815992-46eb-497c-a9a8-99e40d9b59ac, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +168s do início (DURANTE a falha), 9959 ms, WSGI_DELETE_/v2.1/servers/3ac84872-7252-4747-af10-492168dd1a9d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +169s do início (DURANTE a falha), 9597 ms, WSGI_POST_/v2.1/servers, 526 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +170s do início (DURANTE a falha), 9574 ms, WSGI_POST_/v2.1/servers, 456 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +173s do início (DURANTE a falha), 8071 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +174s do início (DURANTE a falha), 13253 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +176s do início (DURANTE a falha), 8829 ms, WSGI_DELETE_/v2.1/servers/3a483af8-4874-4a5b-a645-929576cf81c4, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +177s do início (DURANTE a falha), 9644 ms, WSGI_DELETE_/v2.1/servers/e13676ba-a400-4e98-8f7c-06012762a77f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +180s do início (DURANTE a falha), 10071 ms, WSGI_DELETE_/v2.1/servers/ef18624a-0f86-423c-9f6c-6f08d2bd003c, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +181s do início (DURANTE a falha), 15394 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +183s do início (DURANTE a falha), 15855 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +185s do início (DURANTE a falha), 16840 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +186s do início (DURANTE a falha), 10257 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +187s do início (DURANTE a falha), 12235 ms, WSGI_DELETE_/v2.1/servers/24813518-192e-4b8f-b8cd-0bf295269f79, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +190s do início (DURANTE a falha), 10237 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +190s do início (DURANTE a falha), 12634 ms, WSGI_DELETE_/v2.1/servers/73d9bc3b-0d53-4612-8e7d-7d911492de7f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +190s do início (DURANTE a falha), 10356 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +192s do início (DURANTE a falha), 13650 ms, WSGI_DELETE_/v2.1/servers/bf3edf68-20d6-417a-92bb-3f3ec2ce9e08, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +197s do início (fora da falha), 8764 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +199s do início (fora da falha), 15880 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +202s do início (fora da falha), 8607 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +202s do início (fora da falha), 15434 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +203s do início (fora da falha), 15906 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +204s do início (fora da falha), 9001 ms, WSGI_DELETE_/v2.1/servers/82b64805-e1b1-4125-9456-a89a09e44142, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +205s do início (fora da falha), 12711 ms, WSGI_DELETE_/v2.1/servers/138514db-c466-42e3-aacf-806e0ca2efb0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +205s do início (fora da falha), 9765 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +206s do início (fora da falha), 9318 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +207s do início (fora da falha), 8935 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +208s do início (fora da falha), 8948 ms, WSGI_DELETE_/v2.1/servers/ff443976-4b13-4856-9ab6-a5f4721f6c94, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +209s do início (fora da falha), 12264 ms, WSGI_DELETE_/v2.1/servers/e0518a44-6088-45c4-b5ff-2c23abc4b555, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +210s do início (fora da falha), 12734 ms, WSGI_DELETE_/v2.1/servers/c5aed481-0bc0-4dbe-8f9d-9e4d9d5657e2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +214s do início (fora da falha), 14772 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +214s do início (fora da falha), 15902 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +214s do início (fora da falha), 9882 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +215s do início (fora da falha), 10885 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +220s do início (fora da falha), 11584 ms, WSGI_DELETE_/v2.1/servers/84921090-326e-401b-a386-b55d42c09969, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +221s do início (fora da falha), 12745 ms, WSGI_DELETE_/v2.1/servers/24540b65-09bf-4df9-ab72-97e5eedda1db, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +222s do início (fora da falha), 9151 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +225s do início (fora da falha), 14692 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +230s do início (fora da falha), 12889 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +231s do início (fora da falha), 11509 ms, WSGI_DELETE_/v2.1/servers/fe96fa2c-9a7c-45e1-ada3-fc054b619686, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +233s do início (fora da falha), 16271 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +236s do início (fora da falha), 9726 ms, WSGI_DELETE_/v2.1/servers/1de9a024-8c60-49f4-9e7b-ad5edf7b20e4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +238s do início (fora da falha), 9496 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +238s do início (fora da falha), 16411 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +239s do início (fora da falha), 9317 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +240s do início (fora da falha), 13078 ms, WSGI_DELETE_/v2.1/servers/78e16e73-2b4a-49a4-a148-7999428a49dc, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +240s do início (fora da falha), 10436 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +242s do início (fora da falha), 8306 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +244s do início (fora da falha), 11958 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +244s do início (fora da falha), 9700 ms, WSGI_DELETE_/v2.1/servers/0f3f1318-86a2-4164-9ee8-d726dcd5155d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +244s do início (fora da falha), 13242 ms, WSGI_DELETE_/v2.1/servers/1085821c-4f3c-4ef9-89ca-5237c93aad64, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +250s do início (fora da falha), 8725 ms, WSGI_DELETE_/v2.1/servers/44e763d9-502a-48f2-9096-66a2f8daf3e8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +251s do início (fora da falha), 8827 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +253s do início (fora da falha), 9547 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +254s do início (fora da falha), 13102 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +256s do início (fora da falha), 9030 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +257s do início (fora da falha), 8942 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +258s do início (fora da falha), 9099 ms, WSGI_DELETE_/v2.1/servers/dd902d97-cddc-4ee6-a6ac-81d32ba3c718, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +259s do início (fora da falha), 9838 ms, WSGI_DELETE_/v2.1/servers/db430646-2985-447d-bbf4-63214124c302, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +261s do início (fora da falha), 9909 ms, WSGI_DELETE_/v2.1/servers/b2c861d2-ec92-4aba-bdd9-0ce715069df4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +262s do início (fora da falha), 11699 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +265s do início (fora da falha), 8376 ms, WSGI_POST_/v2.1/servers, 456 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +268s do início (fora da falha), 8452 ms, WSGI_DELETE_/v2.1/servers/c1da3834-2f0f-4b96-8053-63fef14742b1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +268s do início (fora da falha), 9226 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +270s do início (fora da falha), 16334 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +271s do início (fora da falha), 8659 ms, WSGI_DELETE_/v2.1/servers/a9f768aa-bd17-4505-8c43-e8044eb935c2, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +272s do início (fora da falha), 8869 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +272s do início (fora da falha), 9353 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +273s do início (fora da falha), 9210 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +274s do início (fora da falha), 8704 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +275s do início (fora da falha), 9423 ms, WSGI_DELETE_/v2.1/servers/47f2ae58-031a-4fa9-aa99-f5e14e7ed5cf, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +276s do início (fora da falha), 16042 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +276s do início (fora da falha), 13166 ms, WSGI_DELETE_/v2.1/servers/7d7e5db7-b458-43b0-b8c1-a9237daf1885, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +278s do início (fora da falha), 8540 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +282s do início (fora da falha), 13602 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +282s do início (fora da falha), 12723 ms, WSGI_DELETE_/v2.1/servers/40c01c7f-6b03-4d10-a560-5485da2f669e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +282s do início (fora da falha), 9789 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +284s do início (fora da falha), 8218 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +288s do início (fora da falha), 10372 ms, WSGI_DELETE_/v2.1/servers/442fd57c-bdd3-43de-8647-57a35f47725a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B3: +289s do início (fora da falha), 10997 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +291s do início (fora da falha), 9974 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +292s do início (fora da falha), 9212 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B3: +295s do início (fora da falha), 10108 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +297s do início (fora da falha), 10925 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +297s do início (fora da falha), 12289 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +298s do início (fora da falha), 14454 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +300s do início (fora da falha), 13896 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +301s do início (fora da falha), 15279 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B3: +301s do início (fora da falha), 17276 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +2s do início (fora da falha), 12642 ms, WSGI_POST_/v2.1/servers, 616 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +2s do início (fora da falha), 9550 ms, WSGI_POST_/v2.1/servers, 500 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +5s do início (fora da falha), 8713 ms, WSGI_POST_/v2.1/servers, 498 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +8s do início (fora da falha), 9351 ms, WSGI_DELETE_/v2.1/servers/dd8a4e4e-9511-49e3-af18-d67ec9a86caf, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +8s do início (fora da falha), 9708 ms, WSGI_DELETE_/v2.1/servers/bb751679-9a53-4cf0-83fe-a5249f828ce6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +10s do início (fora da falha), 12925 ms, WSGI_POST_/v2.1/servers, 605 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +10s do início (fora da falha), 9713 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +11s do início (fora da falha), 8917 ms, WSGI_DELETE_/v2.1/servers/f524ff7f-2f94-4f3a-9297-4d3deda4c77f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +13s do início (fora da falha), 9479 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +14s do início (fora da falha), 15507 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +17s do início (fora da falha), 9602 ms, WSGI_DELETE_/v2.1/servers/da00497e-034e-47af-91fc-379ad99796d5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +17s do início (fora da falha), 10200 ms, WSGI_DELETE_/v2.1/servers/a6b9a6f7-0927-4c11-918b-962099339d3c, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +18s do início (fora da falha), 15651 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +19s do início (fora da falha), 9965 ms, WSGI_DELETE_/v2.1/servers/192a6296-1175-45ef-a3f9-afcb9cb45d45, 95 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +20s do início (fora da falha), 10913 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +20s do início (fora da falha), 12307 ms, WSGI_DELETE_/v2.1/servers/7da4fd01-974c-4480-8f4e-767146af4ac5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +24s do início (fora da falha), 12395 ms, WSGI_DELETE_/v2.1/servers/95ae24f9-e42b-4416-b5b4-ed8a34a85227, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +26s do início (fora da falha), 15212 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +30s do início (fora da falha), 8871 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +30s do início (fora da falha), 9047 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +33s do início (fora da falha), 11983 ms, WSGI_DELETE_/v2.1/servers/c952594f-5d74-443a-b34b-d049c02577e2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +34s do início (fora da falha), 16170 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +40s do início (fora da falha), 8134 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +40s do início (fora da falha), 14552 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +40s do início (fora da falha), 8523 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +41s do início (fora da falha), 13014 ms, WSGI_DELETE_/v2.1/servers/2003a636-40c5-49a1-ad52-58b642b4470b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +43s do início (fora da falha), 13139 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +43s do início (fora da falha), 9764 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +46s do início (fora da falha), 8252 ms, WSGI_DELETE_/v2.1/servers/595d246d-ee85-4ba9-87a8-a799ac4082d1, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +46s do início (fora da falha), 11368 ms, WSGI_DELETE_/v2.1/servers/2f5e52a7-f21f-4cf7-b47d-b62ce0242fca, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +50s do início (fora da falha), 9897 ms, WSGI_DELETE_/v2.1/servers/d379e644-02e1-4fde-b479-5961b1322fda, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +50s do início (fora da falha), 14098 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +53s do início (fora da falha), 9103 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +55s do início (fora da falha), 9493 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +57s do início (fora da falha), 10989 ms, WSGI_DELETE_/v2.1/servers/a4af9e50-364a-482a-ab84-3020e8b00133, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +60s do início (fora da falha), 9296 ms, WSGI_DELETE_/v2.1/servers/eee4d272-426f-4739-b0cc-d6c78125a8ba, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +60s do início (fora da falha), 9727 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +62s do início (fora da falha), 9851 ms, WSGI_DELETE_/v2.1/servers/f886691e-32be-43f7-a1a3-3b7695ca81f0, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +63s do início (fora da falha), 10983 ms, WSGI_POST_/v2.1/servers, 502 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +64s do início (fora da falha), 11685 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +67s do início (fora da falha), 10190 ms, WSGI_DELETE_/v2.1/servers/c3b386a7-baa1-4590-a8a9-61db3c3b0db0, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +68s do início (fora da falha), 16269 ms, WSGI_POST_/v2.1/servers, 599 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +70s do início (fora da falha), 9378 ms, WSGI_DELETE_/v2.1/servers/1a9bc579-b799-443b-ac3f-1d9791959eb2, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +71s do início (fora da falha), 8594 ms, WSGI_DELETE_/v2.1/servers/a54bdb0e-867e-4c69-94e0-304eee091656, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +71s do início (fora da falha), 17031 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +72s do início (fora da falha), 8294 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +72s do início (fora da falha), 8200 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +73s do início (fora da falha), 8339 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +74s do início (fora da falha), 9026 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +75s do início (fora da falha), 12994 ms, WSGI_DELETE_/v2.1/servers/6ed50db1-f0b6-4398-be5c-d6bb5d87f803, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +75s do início (fora da falha), 8270 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +75s do início (fora da falha), 8326 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +76s do início (fora da falha), 9512 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +77s do início (fora da falha), 13794 ms, WSGI_DELETE_/v2.1/servers/01b98f21-8f25-47b4-8aae-4617c695d9c3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +78s do início (fora da falha), 15755 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +81s do início (fora da falha), 13787 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +82s do início (fora da falha), 13507 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +82s do início (fora da falha), 13990 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +82s do início (fora da falha), 13749 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +84s do início (fora da falha), 12433 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +86s do início (fora da falha), 11266 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +87s do início (fora da falha), 10671 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +88s do início (fora da falha), 10472 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +90s do início (fora da falha), 8447 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +96s do início (fora da falha), 12491 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +97s do início (fora da falha), 13559 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +97s do início (fora da falha), 12661 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +98s do início (fora da falha), 14965 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +100s do início (fora da falha), 8521 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +102s do início (fora da falha), 9309 ms, WSGI_DELETE_/v2.1/servers/7bc81cb0-dec2-4df0-a3ed-20fb0c14a883, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +104s do início (fora da falha), 10841 ms, WSGI_DELETE_/v2.1/servers/dd22af53-4666-4185-88fa-c56fbd8c38e0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +104s do início (fora da falha), 9534 ms, WSGI_DELETE_/v2.1/servers/49762181-3e21-4102-ae03-fdb0d6051ade, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +105s do início (fora da falha), 11818 ms, WSGI_DELETE_/v2.1/servers/1ab58a53-77cb-4759-a118-b8281f589d0d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +107s do início (fora da falha), 11867 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +107s do início (fora da falha), 9040 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +108s do início (fora da falha), 8851 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +108s do início (fora da falha), 8909 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +113s do início (fora da falha), 8361 ms, WSGI_DELETE_/v2.1/servers/3cef0d75-7fbd-4131-a395-3062b75bf7ed, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +114s do início (fora da falha), 16595 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +117s do início (fora da falha), 8999 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +118s do início (fora da falha), 16904 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +119s do início (fora da falha), 17411 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +120s do início (fora da falha), 13393 ms, WSGI_DELETE_/v2.1/servers/804b473a-71d0-42e4-a9a2-95ea764d3d85, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +120s do início (fora da falha), 10681 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +122s do início (DURANTE a falha), 3012 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B4: +123s do início (DURANTE a falha), 3012 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B4: +123s do início (DURANTE a falha), 3013 ms, WSGI_GET_/v2/images, 1 spans, serviços: glance-api
+c2_B4: +124s do início (DURANTE a falha), 9820 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +124s do início (DURANTE a falha), 16840 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +124s do início (DURANTE a falha), 9124 ms, WSGI_DELETE_/v2.1/servers/600baf37-59e9-4d28-923a-5e4b3798db60, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +124s do início (DURANTE a falha), 13698 ms, WSGI_DELETE_/v2.1/servers/84d15d0d-069d-423f-9656-cc4bac16f15d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +126s do início (DURANTE a falha), 14236 ms, WSGI_DELETE_/v2.1/servers/f37e34a3-e41c-4a75-b18f-8866c1795a58, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +127s do início (DURANTE a falha), 3009 ms, WSGI_POST_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B4: +127s do início (DURANTE a falha), 3011 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B4: +127s do início (DURANTE a falha), 3010 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B4: +128s do início (DURANTE a falha), 3008 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B4: +129s do início (DURANTE a falha), 16288 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +130s do início (DURANTE a falha), 13774 ms, WSGI_DELETE_/v2.1/servers/a2d8e286-31e8-4f53-84bf-7514dd2ba8d0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +133s do início (DURANTE a falha), 17844 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +135s do início (DURANTE a falha), 14130 ms, WSGI_DELETE_/v2.1/servers/9bf7e81e-d9bb-4c55-95aa-6d95a4887c47, 34 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +139s do início (DURANTE a falha), 15687 ms, WSGI_DELETE_/v2.1/servers/e9c4d60d-d905-44d6-914f-2b04a10e8741, 34 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +140s do início (DURANTE a falha), 543 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B4: +140s do início (DURANTE a falha), 10999 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +141s do início (DURANTE a falha), 10532 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +147s do início (DURANTE a falha), 8504 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +147s do início (DURANTE a falha), 14498 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +151s do início (DURANTE a falha), 9682 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +151s do início (DURANTE a falha), 17014 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +154s do início (DURANTE a falha), 8668 ms, WSGI_DELETE_/v2.1/servers/4799b70d-c952-4ab8-bc05-74941bde71b2, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +154s do início (DURANTE a falha), 11292 ms, WSGI_DELETE_/v2.1/servers/208cf6a0-557d-44a2-8d80-4b70367f3f61, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +155s do início (DURANTE a falha), 17219 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +157s do início (DURANTE a falha), 9978 ms, WSGI_DELETE_/v2.1/servers/fa8955d2-0856-4802-a112-fa2213339d8b, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +157s do início (DURANTE a falha), 17018 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +157s do início (DURANTE a falha), 13858 ms, WSGI_DELETE_/v2.1/servers/55571cd5-070f-4ae1-8891-3b0493f2afda, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +161s do início (DURANTE a falha), 9536 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +161s do início (DURANTE a falha), 16648 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +162s do início (DURANTE a falha), 14031 ms, WSGI_DELETE_/v2.1/servers/a039c7ad-c852-4dc6-89f2-109dc8e5e832, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +164s do início (DURANTE a falha), 13822 ms, WSGI_DELETE_/v2.1/servers/daae4b5b-89d4-4f1e-aaed-e20cae929166, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +166s do início (DURANTE a falha), 9947 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +167s do início (DURANTE a falha), 9718 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +168s do início (DURANTE a falha), 13363 ms, WSGI_DELETE_/v2.1/servers/4bf085f5-4878-4a8f-a609-c9c39970180b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +168s do início (DURANTE a falha), 10364 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +176s do início (DURANTE a falha), 13194 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +178s do início (DURANTE a falha), 12491 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +181s do início (DURANTE a falha), 12700 ms, WSGI_POST_/v2.1/servers, 603 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +182s do início (DURANTE a falha), 8574 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +182s do início (DURANTE a falha), 9996 ms, WSGI_DELETE_/v2.1/servers/2ebb9a41-8684-465d-9625-71abd87bb041, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +185s do início (DURANTE a falha), 9224 ms, WSGI_DELETE_/v2.1/servers/109fcccd-7a8d-48be-9922-ec2efcda0740, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +187s do início (DURANTE a falha), 8791 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +187s do início (DURANTE a falha), 9472 ms, WSGI_DELETE_/v2.1/servers/4ea3aebc-d475-46c4-bef4-950a53561255, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +188s do início (DURANTE a falha), 9173 ms, WSGI_DELETE_/v2.1/servers/62bc4dcd-b92b-44c5-8a2c-404382e939c0, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +190s do início (DURANTE a falha), 8517 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +192s do início (DURANTE a falha), 8387 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +193s do início (DURANTE a falha), 9395 ms, WSGI_DELETE_/v2.1/servers/c408e4de-5b15-4be2-99d0-b012f4b6f9f5, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +194s do início (DURANTE a falha), 17464 ms, WSGI_POST_/v2.1/servers, 562 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +196s do início (DURANTE a falha), 9076 ms, WSGI_DELETE_/v2.1/servers/51a86b7a-622c-4067-a555-1472b299294d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +196s do início (DURANTE a falha), 8850 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +196s do início (DURANTE a falha), 18547 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +196s do início (DURANTE a falha), 8988 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +197s do início (fora da falha), 12570 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +198s do início (fora da falha), 8967 ms, WSGI_DELETE_/v2.1/servers/76700cab-640c-45be-8d22-1bc08229fe4a, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +199s do início (fora da falha), 11419 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +200s do início (fora da falha), 10830 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +201s do início (fora da falha), 14175 ms, WSGI_DELETE_/v2.1/servers/a47ac9bc-c27e-4e3b-9367-f3e95296fc60, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +202s do início (fora da falha), 11111 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +202s do início (fora da falha), 9093 ms, WSGI_DELETE_/v2.1/servers/08e34725-f3bf-4182-b603-4cbeb2a82790, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +203s do início (fora da falha), 15307 ms, WSGI_DELETE_/v2.1/servers/8bb432ba-ee5b-4d96-b614-dc9a4fa2a812, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +208s do início (fora da falha), 9608 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +209s do início (fora da falha), 9884 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +211s do início (fora da falha), 8613 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +215s do início (fora da falha), 15821 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +215s do início (fora da falha), 8902 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +216s do início (fora da falha), 8219 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +219s do início (fora da falha), 14413 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +220s do início (fora da falha), 15586 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +221s do início (fora da falha), 12632 ms, WSGI_DELETE_/v2.1/servers/c7402de9-3268-44c9-a6fc-208819c3bf1a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +222s do início (fora da falha), 8730 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +223s do início (fora da falha), 8877 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +224s do início (fora da falha), 9435 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +225s do início (fora da falha), 9412 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +225s do início (fora da falha), 11221 ms, WSGI_DELETE_/v2.1/servers/8b6af65a-8942-4002-b859-d0289077692e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +227s do início (fora da falha), 12362 ms, WSGI_DELETE_/v2.1/servers/54f29807-8628-4b92-aaf4-e05f78f0b05d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +227s do início (fora da falha), 9470 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +227s do início (fora da falha), 9905 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +227s do início (fora da falha), 10176 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +230s do início (fora da falha), 15204 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +233s do início (fora da falha), 14606 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +236s do início (fora da falha), 13376 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +237s do início (fora da falha), 12002 ms, WSGI_DELETE_/v2.1/servers/2db7d545-cd35-4279-94be-5e04d2474da9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +237s do início (fora da falha), 8924 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +239s do início (fora da falha), 11431 ms, WSGI_DELETE_/v2.1/servers/db0dd610-26c4-4866-a6bd-76537674b5b6, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +242s do início (fora da falha), 9050 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +242s do início (fora da falha), 10208 ms, WSGI_DELETE_/v2.1/servers/3560f22c-390a-4cbe-947e-05d0d574f535, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +243s do início (fora da falha), 8103 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +244s do início (fora da falha), 8111 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +245s do início (fora da falha), 13667 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +245s do início (fora da falha), 9171 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +246s do início (fora da falha), 8724 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +250s do início (fora da falha), 9336 ms, WSGI_POST_/v2.1/servers, 495 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +251s do início (fora da falha), 10488 ms, WSGI_DELETE_/v2.1/servers/32486fb8-6aa5-4c20-a2ef-454c4ba820f1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +251s do início (fora da falha), 15562 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +255s do início (fora da falha), 18538 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +255s do início (fora da falha), 8865 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +255s do início (fora da falha), 9233 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +256s do início (fora da falha), 8716 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +256s do início (fora da falha), 9634 ms, WSGI_DELETE_/v2.1/servers/f64cec78-9821-41f6-a4a9-9cfa745c0e41, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +256s do início (fora da falha), 8910 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +258s do início (fora da falha), 12366 ms, WSGI_DELETE_/v2.1/servers/284e51a9-5f43-4c19-b204-647dc9f61f72, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +259s do início (fora da falha), 12283 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +260s do início (fora da falha), 11792 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +261s do início (fora da falha), 15406 ms, WSGI_DELETE_/v2.1/servers/773ef0c9-9185-46ef-b393-d7ae41783bc4, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +262s do início (fora da falha), 11870 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +266s do início (fora da falha), 13448 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +268s do início (fora da falha), 9218 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +269s do início (fora da falha), 9542 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +273s do início (fora da falha), 11388 ms, WSGI_DELETE_/v2.1/servers/a78b659c-f1e0-4b03-9944-9d9460af8d94, 34 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +276s do início (fora da falha), 8251 ms, WSGI_POST_/v2.1/servers, 495 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +276s do início (fora da falha), 14732 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +277s do início (fora da falha), 15462 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +277s do início (fora da falha), 9549 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +279s do início (fora da falha), 8530 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +279s do início (fora da falha), 8768 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +280s do início (fora da falha), 8497 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +281s do início (fora da falha), 8449 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +282s do início (fora da falha), 8512 ms, WSGI_DELETE_/v2.1/servers/f26c8a13-b78e-42ec-992e-464497d52c92, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +282s do início (fora da falha), 11528 ms, WSGI_DELETE_/v2.1/servers/15c39ead-da50-4ce3-bb3f-69e74c11f984, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +283s do início (fora da falha), 12281 ms, WSGI_DELETE_/v2.1/servers/da1f6d37-7266-4382-8627-474192fa63c5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +285s do início (fora da falha), 16614 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +286s do início (fora da falha), 8951 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +288s do início (fora da falha), 16528 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +290s do início (fora da falha), 18448 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +291s do início (fora da falha), 13382 ms, WSGI_DELETE_/v2.1/servers/b9482256-56f0-44ae-b090-ef70fd89dd3d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +292s do início (fora da falha), 8333 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +293s do início (fora da falha), 9874 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +295s do início (fora da falha), 13393 ms, WSGI_DELETE_/v2.1/servers/64ae6c2a-d07b-4828-9fd1-dd8ae57b5a2d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +297s do início (fora da falha), 12520 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B4: +297s do início (fora da falha), 15342 ms, WSGI_DELETE_/v2.1/servers/3c0862de-d30f-4993-b569-6e5e1b741b32, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B4: +297s do início (fora da falha), 15966 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B4: +300s do início (fora da falha), 15341 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +2s do início (fora da falha), 12329 ms, WSGI_POST_/v2.1/servers, 607 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +7s do início (fora da falha), 12592 ms, WSGI_POST_/v2.1/servers, 603 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +8s do início (fora da falha), 8447 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +9s do início (fora da falha), 11810 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +9s do início (fora da falha), 9065 ms, WSGI_DELETE_/v2.1/servers/f0cdb1b0-9a97-4e35-9647-f577eea1c757, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +13s do início (fora da falha), 9358 ms, WSGI_DELETE_/v2.1/servers/bfb1a4d3-712f-4829-ad37-c9e736b16e3b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +13s do início (fora da falha), 12495 ms, WSGI_POST_/v2.1/servers, 598 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +14s do início (fora da falha), 8711 ms, WSGI_DELETE_/v2.1/servers/ffead802-7812-4780-98fd-1d1b4375f670, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +15s do início (fora da falha), 8639 ms, WSGI_DELETE_/v2.1/servers/377e7fb1-428a-4d1c-9a12-15f598524503, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +17s do início (fora da falha), 12706 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +20s do início (fora da falha), 9284 ms, WSGI_DELETE_/v2.1/servers/b25d5f30-2d78-4cbe-bf39-5b998b1c068f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +20s do início (fora da falha), 16126 ms, WSGI_POST_/v2.1/servers, 597 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +22s do início (fora da falha), 15582 ms, WSGI_POST_/v2.1/servers, 599 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +24s do início (fora da falha), 9432 ms, WSGI_DELETE_/v2.1/servers/b394334c-2bd1-4fbe-8dee-00ae56bc61e2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +24s do início (fora da falha), 8624 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +24s do início (fora da falha), 16659 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +26s do início (fora da falha), 12880 ms, WSGI_DELETE_/v2.1/servers/d2ef8298-99d1-4b33-8093-a2135356d2d8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +27s do início (fora da falha), 8198 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +29s do início (fora da falha), 12287 ms, WSGI_DELETE_/v2.1/servers/f172db39-5749-4dbb-8a76-3708ad8c2883, 34 spans, serviços: keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +30s do início (fora da falha), 8852 ms, WSGI_DELETE_/v2.1/servers/ad34e978-2ff0-49e9-95e6-cc6fa134d41e, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +30s do início (fora da falha), 13433 ms, WSGI_DELETE_/v2.1/servers/6a446065-a6f4-4b60-9bb8-4e5442943f7f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +32s do início (fora da falha), 10234 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +34s do início (fora da falha), 8887 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +34s do início (fora da falha), 9118 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +35s do início (fora da falha), 10142 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +37s do início (fora da falha), 8245 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +40s do início (fora da falha), 15721 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +42s do início (fora da falha), 15039 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +43s do início (fora da falha), 8330 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +44s do início (fora da falha), 14949 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +44s do início (fora da falha), 9296 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +46s do início (fora da falha), 12502 ms, WSGI_DELETE_/v2.1/servers/d27ca8f4-d8df-43a5-9e65-04982c3c2576, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +48s do início (fora da falha), 11866 ms, WSGI_DELETE_/v2.1/servers/502d37e2-c3d3-4ac0-a21d-a9494d4651d7, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +50s do início (fora da falha), 11804 ms, WSGI_DELETE_/v2.1/servers/b6613c85-7e67-4991-82b6-1c613b64aa15, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +52s do início (fora da falha), 13819 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +58s do início (fora da falha), 10626 ms, WSGI_DELETE_/v2.1/servers/d2a09d14-f2bd-4d4a-9667-5518cbef5b64, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +58s do início (fora da falha), 15856 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +60s do início (fora da falha), 8405 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +62s do início (fora da falha), 14752 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +64s do início (fora da falha), 15117 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +65s do início (fora da falha), 12659 ms, WSGI_DELETE_/v2.1/servers/595a8b1f-04f1-40b2-b5e9-2468b28724d0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +65s do início (fora da falha), 9243 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +68s do início (fora da falha), 11551 ms, WSGI_DELETE_/v2.1/servers/99d5aa18-b060-47ac-8b38-9fb295148707, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +69s do início (fora da falha), 9075 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +71s do início (fora da falha), 11954 ms, WSGI_DELETE_/v2.1/servers/d42adafb-9848-4b2e-8fdd-010e4a572de5, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +71s do início (fora da falha), 9218 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +73s do início (fora da falha), 13767 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +73s do início (fora da falha), 9326 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +76s do início (fora da falha), 14731 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +77s do início (fora da falha), 8614 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +80s do início (fora da falha), 10552 ms, WSGI_DELETE_/v2.1/servers/2d2f2008-7954-4e5e-8835-07411296d01d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +81s do início (fora da falha), 11494 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +82s do início (fora da falha), 11458 ms, WSGI_DELETE_/v2.1/servers/28fb58d0-1995-43f8-912f-afa824459a82, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +83s do início (fora da falha), 8603 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +88s do início (fora da falha), 8312 ms, WSGI_DELETE_/v2.1/servers/20492a22-0887-4cb3-b818-298f38155457, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +91s do início (fora da falha), 12468 ms, WSGI_POST_/v2.1/servers, 605 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +92s do início (fora da falha), 8661 ms, WSGI_POST_/v2.1/servers, 496 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +94s do início (fora da falha), 9216 ms, WSGI_POST_/v2.1/servers, 494 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +95s do início (fora da falha), 14801 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +96s do início (fora da falha), 18156 ms, WSGI_POST_/v2.1/servers, 118 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +96s do início (fora da falha), 9757 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +98s do início (fora da falha), 9306 ms, WSGI_DELETE_/v2.1/servers/c9d44b80-0112-44ba-b9e7-ee791393c400, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +98s do início (fora da falha), 9080 ms, WSGI_DELETE_/v2.1/servers/8ee15dff-aedc-4327-8bc8-5e5de6d90981, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +99s do início (fora da falha), 16315 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +100s do início (fora da falha), 9513 ms, WSGI_DELETE_/v2.1/servers/1c3319e5-a93c-42ba-91a0-b5dd966b5226, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +101s do início (fora da falha), 11605 ms, WSGI_DELETE_/v2.1/servers/802d1592-fa69-4b11-a640-752356a5be70, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +102s do início (fora da falha), 17509 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +102s do início (fora da falha), 15175 ms, WSGI_DELETE_/v2.1/servers/5e939945-8d1f-4ada-a654-c6f6e56efbcd, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +102s do início (fora da falha), 9862 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +105s do início (fora da falha), 10751 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +106s do início (fora da falha), 13236 ms, WSGI_DELETE_/v2.1/servers/f37919ed-c401-4376-bcef-5e04516a5f87, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +107s do início (fora da falha), 9693 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +108s do início (fora da falha), 14377 ms, WSGI_DELETE_/v2.1/servers/2eb64a9c-b154-4b6b-864b-fbb6c9aad1ac, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +116s do início (fora da falha), 15459 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +118s do início (fora da falha), 15348 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +119s do início (fora da falha), 8132 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +120s do início (fora da falha), 9975 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +122s do início (DURANTE a falha), 3011 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_B5: +122s do início (DURANTE a falha), 12243 ms, WSGI_DELETE_/v2.1/servers/7ad428aa-c8e2-4efd-aceb-0cffe03dbab0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +123s do início (DURANTE a falha), 3014 ms, WSGI_GET_/v2.0/ports, 1 spans, serviços: neutron-neutron-server
+c2_B5: +124s do início (DURANTE a falha), 12127 ms, WSGI_DELETE_/v2.1/servers/08befa6d-506a-40af-9acb-e925a010252d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +125s do início (DURANTE a falha), 3011 ms, WSGI_GET_/v2.0/ports, 1 spans, serviços: neutron-neutron-server
+c2_B5: +126s do início (DURANTE a falha), 15892 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +127s do início (DURANTE a falha), 8891 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +127s do início (DURANTE a falha), 3012 ms, WSGI_GET_/v2.1/servers, 1 spans, serviços: nova-osapi_compute
+c2_B5: +129s do início (DURANTE a falha), 14435 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +130s do início (DURANTE a falha), 2011 ms, WSGI_GET_/v2.0/ports, 1 spans, serviços: neutron-neutron-server
+c2_B5: +131s do início (DURANTE a falha), 14127 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +132s do início (DURANTE a falha), 12658 ms, WSGI_DELETE_/v2.1/servers/74dc1a75-f045-41ae-91f2-1b585f545419, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +133s do início (DURANTE a falha), 8832 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +136s do início (DURANTE a falha), 11121 ms, WSGI_DELETE_/v2.1/servers/28144e1a-0e34-47e1-a224-b6f5896a3b50, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +138s do início (DURANTE a falha), 11052 ms, WSGI_DELETE_/v2.1/servers/d1193054-b3e8-4609-8aa6-38867db2b7b7, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +139s do início (DURANTE a falha), 517 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B5: +140s do início (DURANTE a falha), 513 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_B5: +144s do início (DURANTE a falha), 12656 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +145s do início (DURANTE a falha), 8704 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +145s do início (DURANTE a falha), 13292 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +145s do início (DURANTE a falha), 8651 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +147s do início (DURANTE a falha), 15594 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +147s do início (DURANTE a falha), 9600 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +150s do início (DURANTE a falha), 9452 ms, WSGI_DELETE_/v2.1/servers/4b2ddbdd-6e6f-41cc-965c-df680e955392, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +151s do início (DURANTE a falha), 9025 ms, WSGI_DELETE_/v2.1/servers/78488f1d-9d8f-491b-9bbd-228c9e7e414e, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +152s do início (DURANTE a falha), 10075 ms, WSGI_DELETE_/v2.1/servers/94e1ec81-84ae-48af-827f-1dafd1d942b0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +153s do início (DURANTE a falha), 12423 ms, WSGI_DELETE_/v2.1/servers/0737675d-763e-4a55-b1df-3b9973a55f51, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +153s do início (DURANTE a falha), 9241 ms, WSGI_POST_/v2.1/servers, 495 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +156s do início (DURANTE a falha), 17798 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +157s do início (DURANTE a falha), 19657 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +160s do início (DURANTE a falha), 9730 ms, WSGI_DELETE_/v2.1/servers/00477449-647e-4f9b-8bdf-4b5cb9185c5a, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +161s do início (DURANTE a falha), 18490 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +162s do início (DURANTE a falha), 8679 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +162s do início (DURANTE a falha), 14610 ms, WSGI_DELETE_/v2.1/servers/084dff6a-14ac-4e22-aa4d-7e062ff5c532, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +163s do início (DURANTE a falha), 10912 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +164s do início (DURANTE a falha), 16491 ms, WSGI_DELETE_/v2.1/servers/c1f8509f-e6a7-4eb1-a83a-5fe1ac4a6b1f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +164s do início (DURANTE a falha), 10778 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +164s do início (DURANTE a falha), 11183 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +165s do início (DURANTE a falha), 12482 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +167s do início (DURANTE a falha), 15330 ms, WSGI_DELETE_/v2.1/servers/cbc808a0-ec22-45ae-98df-62ccf9bf68e0, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +168s do início (DURANTE a falha), 11484 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +169s do início (DURANTE a falha), 10741 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +170s do início (DURANTE a falha), 12227 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +170s do início (DURANTE a falha), 12163 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +173s do início (DURANTE a falha), 10262 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +173s do início (DURANTE a falha), 10595 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +173s do início (DURANTE a falha), 10487 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +174s do início (DURANTE a falha), 9881 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +177s do início (DURANTE a falha), 8144 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +178s do início (DURANTE a falha), 11317 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +178s do início (DURANTE a falha), 11789 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +181s do início (DURANTE a falha), 8929 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +183s do início (DURANTE a falha), 14170 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +184s do início (DURANTE a falha), 8964 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +186s do início (DURANTE a falha), 14634 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +186s do início (DURANTE a falha), 8939 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +189s do início (DURANTE a falha), 11029 ms, WSGI_DELETE_/v2.1/servers/e725a212-856f-4f2e-ba29-66d560eca79e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +191s do início (DURANTE a falha), 14406 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +192s do início (DURANTE a falha), 11442 ms, WSGI_DELETE_/v2.1/servers/003ca60a-db05-4c4a-8b69-b81eb68b8675, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +193s do início (DURANTE a falha), 8374 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +195s do início (DURANTE a falha), 13172 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +196s do início (DURANTE a falha), 8392 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +197s do início (fora da falha), 8983 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +198s do início (fora da falha), 11243 ms, WSGI_DELETE_/v2.1/servers/95ee9860-d303-4d54-a6e4-19b1cb4a42ee, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +198s do início (fora da falha), 8578 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +201s do início (fora da falha), 12735 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +202s do início (fora da falha), 9921 ms, WSGI_DELETE_/v2.1/servers/b1293969-7ab1-46d5-9949-e3c46e418131, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +205s do início (fora da falha), 13393 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +208s do início (fora da falha), 9549 ms, WSGI_DELETE_/v2.1/servers/ff35bbcc-b017-4cbc-a0eb-cfc42805ee6f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +210s do início (fora da falha), 8691 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +211s do início (fora da falha), 10340 ms, WSGI_DELETE_/v2.1/servers/7746f35f-dbe5-4040-91eb-030e6fdb3f71, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +213s do início (fora da falha), 9002 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +216s do início (fora da falha), 9100 ms, WSGI_DELETE_/v2.1/servers/64f991a5-b31d-4ac7-aff1-431441208641, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +218s do início (fora da falha), 12936 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +218s do início (fora da falha), 9405 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +219s do início (fora da falha), 13566 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +219s do início (fora da falha), 9398 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +219s do início (fora da falha), 9301 ms, WSGI_DELETE_/v2.1/servers/208073e9-2e12-444c-9d64-4385697f500f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +223s do início (fora da falha), 9310 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +224s do início (fora da falha), 9679 ms, WSGI_DELETE_/v2.1/servers/b408c17e-89d9-49ad-8d0f-9e8b159f51d2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +225s do início (fora da falha), 9707 ms, WSGI_DELETE_/v2.1/servers/f2f97495-f2ef-4fe6-a867-5864314d8a2f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +225s do início (fora da falha), 10325 ms, WSGI_DELETE_/v2.1/servers/5f956248-aebe-4b08-b404-8e64e1169a29, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +226s do início (fora da falha), 15323 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +230s do início (fora da falha), 9450 ms, WSGI_DELETE_/v2.1/servers/b4f71807-68ac-422e-8a37-fd59e4a0fc76, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +230s do início (fora da falha), 18565 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +231s do início (fora da falha), 8439 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +232s do início (fora da falha), 12099 ms, WSGI_DELETE_/v2.1/servers/3da498c3-a4eb-4dac-8c51-d9d89961b329, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +233s do início (fora da falha), 9086 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +233s do início (fora da falha), 9289 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +235s do início (fora da falha), 22064 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +236s do início (fora da falha), 10408 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +237s do início (fora da falha), 15367 ms, WSGI_DELETE_/v2.1/servers/8cc5d152-4108-46f3-a206-f9df30999420, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +238s do início (fora da falha), 11036 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +239s do início (fora da falha), 11180 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +240s do início (fora da falha), 10963 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +242s do início (fora da falha), 18907 ms, WSGI_DELETE_/v2.1/servers/3b1afa7f-8267-4161-a832-f4312c2b2d1d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +242s do início (fora da falha), 15531 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +246s do início (fora da falha), 12065 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +248s do início (fora da falha), 11392 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +248s do início (fora da falha), 11863 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +249s do início (fora da falha), 11395 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +249s do início (fora da falha), 11336 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +250s do início (fora da falha), 10687 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +251s do início (fora da falha), 10455 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +260s do início (fora da falha), 12445 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +260s do início (fora da falha), 9314 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +263s do início (fora da falha), 8885 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +267s do início (fora da falha), 16852 ms, WSGI_POST_/v2.1/servers, 695 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +267s do início (fora da falha), 9194 ms, WSGI_DELETE_/v2.1/servers/ee5f3fba-86cb-4d05-be1a-705b35ae641d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +267s do início (fora da falha), 9808 ms, WSGI_DELETE_/v2.1/servers/abe753a8-fee3-4da5-86de-a5bf4b7ebf46, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +269s do início (fora da falha), 9267 ms, WSGI_DELETE_/v2.1/servers/e6317f17-56bb-4b6d-921d-b567e660dda5, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +271s do início (fora da falha), 12591 ms, WSGI_POST_/v2.1/servers, 595 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +273s do início (fora da falha), 9559 ms, WSGI_DELETE_/v2.1/servers/f84e26fb-3798-44c7-8dc5-d7b3916a8d70, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +275s do início (fora da falha), 17549 ms, WSGI_POST_/v2.1/servers, 563 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +275s do início (fora da falha), 14909 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +276s do início (fora da falha), 19081 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +277s do início (fora da falha), 9382 ms, WSGI_DELETE_/v2.1/servers/7778b066-3077-4450-b9e0-a4bcfe6785b1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +277s do início (fora da falha), 9027 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +279s do início (fora da falha), 8635 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +281s do início (fora da falha), 14267 ms, WSGI_DELETE_/v2.1/servers/0418ee08-702c-47bb-a1cc-68cdd4dacfe3, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +281s do início (fora da falha), 10334 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +281s do início (fora da falha), 11678 ms, WSGI_DELETE_/v2.1/servers/87ec396f-fa37-44d9-913f-f05f45a5c3a6, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +281s do início (fora da falha), 12187 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +282s do início (fora da falha), 15885 ms, WSGI_DELETE_/v2.1/servers/7502c1e4-7bab-44aa-a79b-738c986f787b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +285s do início (fora da falha), 11535 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +286s do início (fora da falha), 11458 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +291s do início (fora da falha), 18287 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +292s do início (fora da falha), 8676 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +293s do início (fora da falha), 8218 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +295s do início (fora da falha), 10428 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +297s do início (fora da falha), 11052 ms, WSGI_POST_/v2.1/servers, 494 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_B5: +297s do início (fora da falha), 13261 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_B5: +298s do início (fora da falha), 15054 ms, WSGI_DELETE_/v2.1/servers/96024b85-c6db-4b62-907e-126dfc1d11ed, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_B5: +299s do início (fora da falha), 17621 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +12s do início (fora da falha), 11091 ms, WSGI_DELETE_/v2.1/servers/547c72d4-625b-42b5-8c27-b7648546eeda, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +27s do início (fora da falha), 1107 ms, WSGI_DELETE_/v2.1/servers/e819f364-3ba7-402f-8f0c-ec1cd2cb9213, 16 spans, serviços: keystone-public, nova-osapi_compute
+c2_C1: +36s do início (fora da falha), 11608 ms, WSGI_DELETE_/v2.1/servers/f5a86871-1942-4f62-9496-ab1fee3e9292, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +51s do início (fora da falha), 9226 ms, WSGI_DELETE_/v2.1/servers/2a1fad0b-dbed-4ce7-bd96-dd9aac7748c3, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +53s do início (fora da falha), 9697 ms, WSGI_DELETE_/v2.1/servers/ce9e6b3a-081c-408f-8ec5-f0e4ecb239d6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +65s do início (fora da falha), 10022 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +70s do início (fora da falha), 10020 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +71s do início (fora da falha), 14444 ms, WSGI_DELETE_/v2.1/servers/2a4b81f4-4c13-47a8-a531-51dd7f1aaa20, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +79s do início (fora da falha), 15940 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +97s do início (fora da falha), 11992 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +99s do início (fora da falha), 8835 ms, WSGI_DELETE_/v2.1/servers/b5e154f2-4fe3-4d35-b3cc-f31ccd0b8141, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +108s do início (fora da falha), 12830 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +134s do início (DURANTE a falha), 17797 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +144s do início (DURANTE a falha), 8918 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C1: +147s do início (DURANTE a falha), 14303 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +189s do início (DURANTE a falha), 16191 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +190s do início (DURANTE a falha), 18471 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +196s do início (DURANTE a falha), 15187 ms, WSGI_DELETE_/v2.1/servers/2fd5315c-1598-4c16-91ea-40dcb167adb8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +220s do início (fora da falha), 10988 ms, WSGI_DELETE_/v2.1/servers/0c98bf2d-cac1-43ef-aa4d-0a18daf96d55, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +251s do início (fora da falha), 9250 ms, WSGI_POST_/v2.1/servers, 114 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C1: +262s do início (fora da falha), 12641 ms, WSGI_DELETE_/v2.1/servers/8adc5a97-e62f-4f25-99e2-04f269581392, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +268s do início (fora da falha), 16172 ms, WSGI_DELETE_/v2.1/servers/47c593fb-65f0-4cbf-b315-7353f7731de1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +277s do início (fora da falha), 14403 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C1: +283s do início (fora da falha), 11200 ms, WSGI_DELETE_/v2.1/servers/abb88db1-05d1-4167-b7ce-28c534ed7fa1, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C1: +289s do início (fora da falha), 9585 ms, WSGI_DELETE_/v2.1/servers/b6387267-5019-4966-8d10-3da33d00f4b6, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +4s do início (fora da falha), 13769 ms, WSGI_POST_/v2.1/servers, 119 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C2: +11s do início (fora da falha), 10541 ms, WSGI_DELETE_/v2.1/servers/7ad61b49-2bc5-4aac-8160-06e8653243d2, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +14s do início (fora da falha), 9354 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +36s do início (fora da falha), 16622 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +40s do início (fora da falha), 9358 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C2: +41s do início (fora da falha), 9618 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +60s do início (fora da falha), 9382 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +70s do início (fora da falha), 8338 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +74s do início (fora da falha), 12666 ms, WSGI_POST_/v2.1/servers, 601 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +78s do início (fora da falha), 11628 ms, WSGI_POST_/v2.1/servers, 501 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +91s do início (fora da falha), 9592 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +98s do início (fora da falha), 11483 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +102s do início (fora da falha), 10448 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +127s do início (DURANTE a falha), 8666 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +156s do início (DURANTE a falha), 11184 ms, WSGI_DELETE_/v2.1/servers/17921579-d9bf-49f5-8e02-6d400a93daa8, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +168s do início (DURANTE a falha), 10614 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C2: +168s do início (DURANTE a falha), 10423 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +194s do início (DURANTE a falha), 15989 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +194s do início (DURANTE a falha), 8284 ms, WSGI_DELETE_/v2.1/servers/41f1e8a0-c06b-4341-8fdc-ba3da2bce934, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +209s do início (fora da falha), 8999 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +210s do início (fora da falha), 8456 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +217s do início (fora da falha), 8924 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +218s do início (fora da falha), 11193 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +220s do início (fora da falha), 10502 ms, WSGI_DELETE_/v2.1/servers/b933ea6f-fe5d-4f8e-962a-ac76d21ad33e, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +223s do início (fora da falha), 9168 ms, WSGI_DELETE_/v2.1/servers/b791ad72-8d01-4f90-bada-4419ced4be7f, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +247s do início (fora da falha), 9213 ms, WSGI_DELETE_/v2.1/servers/2ce996fa-c6b0-4a2f-b5cf-577f67c93bba, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +261s do início (fora da falha), 13178 ms, WSGI_DELETE_/v2.1/servers/361a0482-2cff-4a1d-89b0-3155ab84cd13, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +272s do início (fora da falha), 12276 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +284s do início (fora da falha), 8348 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C2: +287s do início (fora da falha), 9754 ms, WSGI_DELETE_/v2.1/servers/efa6d943-92dd-4239-8322-98e1bd5a7a42, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C2: +300s do início (fora da falha), 13473 ms, WSGI_POST_/v2.1/servers, 492 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C3: +9s do início (fora da falha), 15133 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +25s do início (fora da falha), 9966 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +34s do início (fora da falha), 8266 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +46s do início (fora da falha), 8470 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +71s do início (fora da falha), 9237 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C3: +77s do início (fora da falha), 12467 ms, WSGI_DELETE_/v2.1/servers/1c8e59e5-bbeb-46bf-b3f1-cb53cf5e0c97, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C3: +77s do início (fora da falha), 9304 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +82s do início (fora da falha), 8102 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +138s do início (DURANTE a falha), 10041 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +141s do início (DURANTE a falha), 12579 ms, WSGI_DELETE_/v2.1/servers/94652184-9df3-4725-abc8-bbfde7499c64, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C3: +181s do início (DURANTE a falha), 8643 ms, WSGI_POST_/v2.1/servers, 493 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +191s do início (DURANTE a falha), 8642 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +201s do início (fora da falha), 19158 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +223s do início (fora da falha), 9879 ms, WSGI_DELETE_/v2.1/servers/74752285-d10b-49d9-b611-f9e31740ad77, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C3: +254s do início (fora da falha), 9460 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +261s do início (fora da falha), 9076 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C3: +281s do início (fora da falha), 10233 ms, WSGI_DELETE_/v2.1/servers/4da51164-5001-4918-9a98-7181bd795ed9, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C3: +298s do início (fora da falha), 11536 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +4s do início (fora da falha), 12568 ms, WSGI_POST_/v2.1/servers, 606 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C4: +10s do início (fora da falha), 9412 ms, WSGI_DELETE_/v2.1/servers/92b788fa-902b-482b-afd3-895febc9a895, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +11s do início (fora da falha), 8847 ms, WSGI_DELETE_/v2.1/servers/9e0807e0-e929-4906-aa87-99caac8394eb, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +15s do início (fora da falha), 9067 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +25s do início (fora da falha), 12003 ms, WSGI_POST_/v2.1/servers, 117 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C4: +29s do início (fora da falha), 9293 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +47s do início (fora da falha), 9111 ms, WSGI_DELETE_/v2.1/servers/20e7b4d9-2dab-4351-8377-5f5efbf2631f, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +60s do início (fora da falha), 9960 ms, WSGI_DELETE_/v2.1/servers/2f2cf5f9-421b-4491-b82a-174a906b7553, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +60s do início (fora da falha), 18874 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +70s do início (fora da falha), 15718 ms, WSGI_DELETE_/v2.1/servers/48f62b09-3766-4568-a3fb-aefe7ca8799a, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +91s do início (fora da falha), 11624 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C4: +120s do início (fora da falha), 15297 ms, WSGI_DELETE_/v2.1/servers/c55d2c3e-a242-4cce-99ae-2895224fb1db, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +124s do início (DURANTE a falha), 3012 ms, WSGI_GET_/v2.0/networks, 1 spans, serviços: neutron-neutron-server
+c2_C4: +140s do início (DURANTE a falha), 8807 ms, WSGI_POST_/v2.1/servers, 495 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C4: +141s do início (DURANTE a falha), 509 ms, WSGI_POST_/v3/auth/tokens, 5 spans, serviços: keystone-public
+c2_C4: +149s do início (DURANTE a falha), 12410 ms, WSGI_POST_/v2.1/servers, 600 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +149s do início (DURANTE a falha), 9174 ms, WSGI_DELETE_/v2.1/servers/d64cad01-1af9-4549-9e32-f3d0eda3cf97, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +163s do início (DURANTE a falha), 13808 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +169s do início (DURANTE a falha), 8514 ms, WSGI_DELETE_/v2.1/servers/f5bbb9f3-8de9-4280-9c7e-9142106b694d, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +173s do início (DURANTE a falha), 10677 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +176s do início (DURANTE a falha), 12757 ms, WSGI_DELETE_/v2.1/servers/01bbbb0c-a055-4d05-998f-6ed3e6216065, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +180s do início (DURANTE a falha), 10205 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +205s do início (fora da falha), 16479 ms, WSGI_DELETE_/v2.1/servers/81281dfa-acce-4cf0-b62c-c579e62db89d, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +206s do início (fora da falha), 11441 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C4: +240s do início (fora da falha), 8826 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +278s do início (fora da falha), 13968 ms, WSGI_DELETE_/v2.1/servers/ff513409-4cda-40e2-afc6-e26b5e23c433, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C4: +288s do início (fora da falha), 9261 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +292s do início (fora da falha), 8133 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C4: +294s do início (fora da falha), 9550 ms, WSGI_DELETE_/v2.1/servers/1da7ce39-d1fd-433d-989e-7d4948033270, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C5: +9s do início (fora da falha), 15775 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +14s do início (fora da falha), 9580 ms, WSGI_DELETE_/v2.1/servers/5a0ed406-dfd9-4e1d-b19b-8b9a04e00554, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C5: +33s do início (fora da falha), 15050 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +57s do início (fora da falha), 8566 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +64s do início (fora da falha), 15750 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +65s do início (fora da falha), 16882 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +77s do início (fora da falha), 9161 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +167s do início (DURANTE a falha), 10293 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +186s do início (DURANTE a falha), 9829 ms, WSGI_DELETE_/v2.1/servers/7574c89f-8a5e-4180-afb6-05dacfd5e166, 94 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C5: +202s do início (fora da falha), 10438 ms, WSGI_POST_/v2.1/servers, 115 spans, serviços: glance-api, keystone-public, neutron-neutron-server, nova-osapi_compute
+c2_C5: +205s do início (fora da falha), 12272 ms, WSGI_DELETE_/v2.1/servers/e2180a9c-8184-4c04-a9ff-ecc276533497, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C5: +206s do início (fora da falha), 8590 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +234s do início (fora da falha), 16263 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +238s do início (fora da falha), 9569 ms, WSGI_DELETE_/v2.1/servers/98701aef-c863-431e-9317-a77206a72b69, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+c2_C5: +261s do início (fora da falha), 9059 ms, WSGI_POST_/v2.1/servers, 491 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +263s do início (fora da falha), 13224 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +266s do início (fora da falha), 15124 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +278s do início (fora da falha), 9022 ms, WSGI_POST_/v2.1/servers, 113 spans, serviços: glance-api, neutron-neutron-server, nova-osapi_compute
+c2_C5: +299s do início (fora da falha), 10947 ms, WSGI_DELETE_/v2.1/servers/4207deea-2c83-4169-9696-f350fbd7e21b, 31 spans, serviços: neutron-neutron-server, nova-osapi_compute
+
+## Loki por execução: linhas por minuto (antes / durante / depois da falha)
+
+| Execução | total | erro | keystone | depreciação |
+|---|---|---|---|---|
+| c2_B1 | 2379 / 2336 / 2000 | 20 / 42 / 22 | 0 / 34 / 0 | 166 / 174 / 160 |
+| c2_B2 | 2189 / 2383 / 1983 | 20 / 66 / 23 | 0 / 81 / 0 | 178 / 196 / 146 |
+| c2_B3 | 2312 / 2252 / 2010 | 24 / 32 / 23 | 0 / 15 / 0 | 171 / 178 / 163 |
+| c2_B4 | 2349 / 2267 / 1947 | 24 / 66 / 23 | 0 / 72 / 0 | 188 / 168 / 182 |
+| c2_B5 | 2182 / 2191 / 2045 | 31 / 57 / 23 | 0 / 62 / 0 | 171 / 198 / 168 |
+| c2_C1 | 1893 / 1957 / 1522 | 0 / 46 / 0 | 2 / 30 / 0 | 0 / 4 / 0 |
+| c2_C2 | 1934 / 1911 / 1665 | 0 / 22 / 0 | 0 / 43 / 0 | 0 / 4 / 0 |
+| c2_C3 | 1697 / 1611 / 1592 | 0 / 31 / 0 | 0 / 28 / 0 | 0 / 4 / 0 |
+| c2_C4 | 1952 / 1986 / 1584 | 0 / 73 / 0 | 0 / 27 / 0 | 0 / 4 / 0 |
+| c2_C5 | 1837 / 1708 / 1599 | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 4 / 0 |
+
+## Loki por condição: linhas/min, média ± dp entre execuções
+
+| Condição | janela | total | erro | keystone | depreciação |
+|---|---|---|---|---|---|
+| B (padrão) (n=5) | antes | 2282 ± 91 | 24 ± 4 | 0 ± 0 | 175 ± 9 |
+| B (padrão) (n=5) | durante | 2286 ± 75 | 53 ± 15 | 53 ± 27 | 183 ± 13 |
+| B (padrão) (n=5) | depois | 1997 ± 36 | 23 ± 1 | 0 ± 0 | 164 ± 13 |
+| C (otimizada, tail sampling) (n=5) | antes | 1863 ± 103 | 0 ± 0 | 0 ± 1 | 0 ± 0 |
+| C (otimizada, tail sampling) (n=5) | durante | 1834 ± 166 | 34 ± 27 | 26 ± 16 | 4 ± 0 |
+| C (otimizada, tail sampling) (n=5) | depois | 1593 ± 51 | 0 ± 0 | 0 ± 0 | 0 ± 0 |
+
+## Jaeger por condição: média ± dp entre execuções (soma entre parênteses)
+
+| Condição | n | traces | com erro | lentos | erro na falha | lentos na falha |
+|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 2565.2 ± 16.4 (12826) | 0.0 ± 0.0 (0) | 206.0 ± 9.5 (1030) | 0.0 ± 0.0 (0) | 57.0 ± 6.2 (285) |
+| C (otimizada, tail sampling) | 5 | 265.6 ± 15.2 (1328) | 0.0 ± 0.0 (0) | 24.4 ± 5.8 (122) | 0.0 ± 0.0 (0) | 5.6 ± 3.0 (28) |
+
+## Diferença pareada por bloco (B − C): média [IC 95%]
+
+| Medida | blocos | diferença |
+|---|---|---|
+| traces criados | 5 | +2299.6 [+2265.7; +2333.5] |
+| lentos | 5 | +181.6 [+169.2; +194.0] |
+| lentos na falha | 5 | +51.4 [+42.2; +60.6] |
+| com erro | 5 | +0.0 [+0.0; +0.0] |
+
+Falhas de requisição (Locust) por execução: {'c2_B1': 31, 'c2_B2': 51, 'c2_B3': 20, 'c2_B4': 36, 'c2_B5': 33, 'c2_C1': 34, 'c2_C2': 30, 'c2_C3': 27, 'c2_C4': 22, 'c2_C5': 24}

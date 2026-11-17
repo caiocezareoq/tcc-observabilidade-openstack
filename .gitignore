@@ -1,0 +1,4 @@
+*.pem
+*.html
+__pycache__/
+*.sa.invalida

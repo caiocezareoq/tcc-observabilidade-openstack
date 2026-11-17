@@ -1,0 +1,3 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,Keystone - Auth (token issuance),CatchResponseError('Auth failed: 502'),3,2026-10-15T15:57:08Z,2026-10-15T15:57:08Z
+POST,Keystone - Auth (token issuance),CatchResponseError('Auth failed: 503'),21,2026-10-15T15:57:11Z,2026-10-15T15:57:25Z

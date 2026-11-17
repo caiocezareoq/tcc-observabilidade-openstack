@@ -1,0 +1,7 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,Nova - List Servers,HTTPError('503 Server Error: Service Unavailable for url: Nova - List Servers'),2,2026-10-15T15:27:21Z,2026-10-15T15:27:25Z
+POST,Nova - Create Server (provisionamento),CatchResponseError('Create failed: 500'),1,2026-10-15T15:27:17Z,2026-10-15T15:27:17Z
+POST,Nova - Create Server (provisionamento),CatchResponseError('Create failed: 503'),1,2026-10-15T15:27:27Z,2026-10-15T15:27:27Z
+POST,Keystone - Auth (token issuance),CatchResponseError('Auth failed: 503'),15,2026-10-15T15:27:15Z,2026-10-15T15:27:28Z
+GET,Neutron - List Ports,HTTPError('503 Server Error: Service Unavailable for url: Neutron - List Ports'),1,2026-10-15T15:27:23Z,2026-10-15T15:27:23Z
+GET,Neutron - List Networks,HTTPError('503 Server Error: Service Unavailable for url: Neutron - List Networks'),2,2026-10-15T15:27:11Z,2026-10-15T15:27:16Z

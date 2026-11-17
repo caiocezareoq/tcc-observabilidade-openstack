@@ -1,0 +1,43 @@
+
+## Por condição: média ± desvio-padrão (n execuções)
+
+| Condição | n | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s | Falhas |
+|---|---|---|---|---|---|---|---|---|---|
+| B (padrão) | 5 | 34.3 ± 0.8 | 10.96 ± 0.08 | 12.5 ± 0.3 | 75 ± 1 | 330 ± 10 | 402 ± 8 | 8.63 ± 0.07 | 0 ± 0 |
+| D (otimizada, tail sampling, decision_wait 30 s) | 5 | 33.7 ± 1.9 | 10.94 ± 0.15 | 12.6 ± 1.2 | 76 ± 1 | 332 ± 15 | 406 ± 9 | 8.62 ± 0.10 | 0 ± 0 |
+
+## Diferenças pareadas por bloco: média [IC 95%]
+
+| Comparação | blocos | CPU méd (%) | Mem méd (GiB) | Rede TX (MB) | P50 (ms) | P95 (ms) | P99 (ms) | req/s |
+|---|---|---|---|---|---|---|---|---|
+| D − B | 5 | -0.6 [-2.6; +1.5] | -0.03 [-0.12; +0.06] | +0.0 [-1.3; +1.4] | +1 [-1; +3] | +2 [-28; +32] | +4 [-15; +23] | -0.01 [-0.22; +0.19] |
+
+Execuções com falhas de requisição: nenhuma
+
+## Servidor de Observabilidade (AWS), por execução
+
+| Execução | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|
+| n5_B1 | 7.3 | 1.88 | 5.7 |
+| n5_B2 | 6.4 | 1.45 | 5.8 |
+| n5_B3 | 14.3 | 2.54 | 5.7 |
+| n5_B4 | 7.0 | 1.41 | 6.0 |
+| n5_B5 | 13.6 | 1.47 | 5.7 |
+| n5_D1 | 9.5 | 1.78 | 5.0 |
+| n5_D2 | 14.7 | 2.76 | 4.7 |
+| n5_D3 | 8.0 | 1.45 | 5.2 |
+| n5_D4 | 5.8 | 1.37 | 5.4 |
+| n5_D5 | 9.3 | 3.03 | 5.3 |
+
+## Servidor de Observabilidade (AWS): média ± desvio-padrão (valores válidos)
+
+| Condição | n | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| B (padrão) | 5 | 9.7 ± 3.9 (n=5) | 1.75 ± 0.48 (n=5) | 5.8 ± 0.1 (n=5) |
+| D (otimizada, tail sampling, decision_wait 30 s) | 5 | 9.5 ± 3.3 (n=5) | 2.08 ± 0.77 (n=5) | 5.1 ± 0.3 (n=5) |
+
+## Servidor: diferenças pareadas por bloco, média [IC 95%]
+
+| Comparação | blocos | CPU servidor (%) | Mem servidor (GiB) | Rede RX (MB) |
+|---|---|---|---|---|
+| D − B | 5 | -0.3 [-7.4; +6.9] | +0.33 [-1.03; +1.69] | -0.7 [-1.0; -0.3] |
