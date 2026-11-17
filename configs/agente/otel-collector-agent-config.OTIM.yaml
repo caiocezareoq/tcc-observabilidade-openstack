@@ -1,0 +1,112 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+  # Métricas do próprio host (CPU, memória, disco, rede, load)
+  hostmetrics:
+    collection_interval: 30s   # OTIMIZADO: era 15s (seção 4.7/4.8)
+    root_path: /hostfs
+    scrapers:
+      cpu:
+      memory:
+      disk:
+      network:
+        # OTIMIZADO: exclui as dezenas de interfaces virtuais criadas pelo
+        # Neutron/OVS por porta de VM (qbr*, qvb*, qvo*, tap*, br-*), que
+        # inflavam a cardinalidade do painel de rede sem agregar valor
+        # analítico (seção 4.7, item "cardinalidade das métricas").
+        exclude:
+          match_type: regexp
+          interfaces: ["^(qbr|qvb|qvo|qbo|tap|br-).*"]
+      load:
+      filesystem:
+
+  # Logs dos containers do OpenStack (Kolla-Ansible grava em /var/log/kolla/<serviço>/*.log)
+  # Uma instância por serviço, cada uma marcando service.name explicitamente —
+  # sem isso, os logs chegam ao Loki como "unknown_service".
+  filelog/nova:
+    include: [/var/log/kolla/nova/*.log]
+    start_at: end
+    resource:
+      service.name: nova
+
+  filelog/neutron:
+    include: [/var/log/kolla/neutron/*.log]
+    start_at: end
+    resource:
+      service.name: neutron
+
+  filelog/keystone:
+    include: [/var/log/kolla/keystone/*.log]
+    start_at: end
+    resource:
+      service.name: keystone
+
+  filelog/glance:
+    include: [/var/log/kolla/glance/*.log]
+    start_at: end
+    resource:
+      service.name: glance
+
+  filelog/horizon:
+    include: [/var/log/kolla/horizon/*.log]
+    start_at: end
+    resource:
+      service.name: horizon
+  # Sem parser estruturado por enquanto: os serviços do OpenStack (oslo.log, uwsgi, etc.)
+  # usam formatos de linha diferentes entre si, e um regex único quebra em alguns deles
+  # (ex.: nova-api-uwsgi.log). A linha crua ainda vai inteira para o Loki/Jaeger como log,
+  # só sem timestamp/severity extraídos.
+
+  # Métricas do MySQL/MariaDB usado pelo OpenStack (ajuste usuário/senha/host abaixo)
+  mysql:
+    endpoint: 192.168.0.250:3306   # kolla_internal_vip_address (ver /etc/kolla/globals.yml)
+    username: root_shard_0          # nome do root no ProxySQL do Kolla-Ansible (não é "root")
+    password: ${env:DB_PASSWORD}
+    collection_interval: 30s #otimizado era 15s
+
+
+processors:
+  batch:
+    send_batch_size: 2000 #otimizado era 1000
+    send_batch_max_size: 4000 #otimizado era 2000
+    timeout: 10s #otimizado era 5s
+
+  # OTIMIZADO (novo): descarta logs rotineiros de baixo valor diagnóstico
+  # identificados na primeira rodada de experimentos (seção 4.5/4.7) —
+  # healthchecks periódicos, avisos de depreciação de bibliotecas e o
+  # laço de execução interno dos agentes do Neutron.
+  filter/logs_noise:
+    logs:
+      log_record:
+        - 'IsMatch(body, ".*healthcheck.*")'
+        - 'IsMatch(body, ".*neutronclient.*deprecated.*")'
+        - 'IsMatch(body, ".*rpc_loop.*")'
+
+exporters:
+  otlp:
+    endpoint: "IP_DO_SERVIDOR:4317"      # <-- troque pelo IP público (ou Elastic IP) da instância AWS
+    tls:
+      insecure: true                          # em produção real, prefira TLS/mTLS
+    compression: gzip   # OTIMIZADO (novo): reduz tráfego de rede entre agente e gateway
+
+  debug:
+    verbosity: basic
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp, debug]
+    metrics:
+      receivers: [hostmetrics, mysql]
+      processors: [batch]
+      exporters: [otlp, debug]
+
+    logs:
+      receivers: [filelog/nova, filelog/neutron, filelog/keystone, filelog/glance, filelog/horizon]
+      processors: [filter/logs_noise, batch]
+      exporters: [otlp, debug]

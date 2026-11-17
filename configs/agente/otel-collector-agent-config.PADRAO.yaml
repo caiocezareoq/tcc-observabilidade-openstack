@@ -1,0 +1,91 @@
+# CONFIGURAÇÃO PADRÃO do Agente local (rodada padrão, seção 4.5/4.6)
+# ATENÇÃO: troque SEU_IP_PUBLICO_AWS e SUA_SENHA_MARIADB pelos valores reais.
+receivers:
+  # Traces enviados pelo OSProfiler (Nova, Neutron, Keystone, Glance) via OTLP/HTTP.
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+  # Métricas do próprio host (CPU, memória, disco, rede, load)
+  hostmetrics:
+    collection_interval: 15s
+    root_path: /hostfs
+    scrapers:
+      cpu:
+      memory:
+      disk:
+      network:
+      load:
+      filesystem:
+
+  # Logs dos containers do OpenStack (Kolla-Ansible grava em /var/log/kolla/<serviço>/*.log)
+  filelog/nova:
+    include: [/var/log/kolla/nova/*.log]
+    start_at: end
+    resource:
+      service.name: nova
+
+  filelog/neutron:
+    include: [/var/log/kolla/neutron/*.log]
+    start_at: end
+    resource:
+      service.name: neutron
+
+  filelog/keystone:
+    include: [/var/log/kolla/keystone/*.log]
+    start_at: end
+    resource:
+      service.name: keystone
+
+  filelog/glance:
+    include: [/var/log/kolla/glance/*.log]
+    start_at: end
+    resource:
+      service.name: glance
+
+  filelog/horizon:
+    include: [/var/log/kolla/horizon/*.log]
+    start_at: end
+    resource:
+      service.name: horizon
+
+  # Métricas do MySQL/MariaDB usado pelo OpenStack
+  mysql:
+    endpoint: 192.168.0.250:3306
+    username: root_shard_0
+    password: ${env:DB_PASSWORD}
+    collection_interval: 15s
+
+processors:
+  batch:
+    send_batch_size: 1000
+    send_batch_max_size: 2000
+    timeout: 5s
+
+exporters:
+  otlp:
+    endpoint: "IP_DO_SERVIDOR:4317"
+    tls:
+      insecure: true
+    # sem compressão (padrão)
+
+  debug:
+    verbosity: basic
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp, debug]
+
+    metrics:
+      receivers: [hostmetrics, mysql]
+      processors: [batch]
+      exporters: [otlp, debug]
+
+    logs:
+      receivers: [filelog/nova, filelog/neutron, filelog/keystone, filelog/glance, filelog/horizon]
+      processors: [batch]          # sem filtro de logs
+      exporters: [otlp, debug]

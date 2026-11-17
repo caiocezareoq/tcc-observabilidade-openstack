@@ -1,0 +1,15 @@
+services:
+  otel-collector-agent:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector-agent
+    user: "0:0"                # necessário pra ler logs com permissão 0600 (ex.: *-uwsgi.log)
+    network_mode: host      # necessário para hostmetrics e para acessar o MySQL do Kolla via localhost
+    pid: host                # necessário para o scraper hostmetrics ler /proc corretamente
+    volumes:
+      - ./otel-collector-agent-config.yaml:/etc/otel-collector-agent-config.yaml
+      - /var/log/kolla:/var/log/kolla:ro     # logs dos containers do OpenStack (Kolla-Ansible)
+      - /proc:/hostfs/proc:ro
+      - /sys:/hostfs/sys:ro
+      - /:/hostfs:ro
+    command: ["--config=/etc/otel-collector-agent-config.yaml"]
+    restart: unless-stopped
