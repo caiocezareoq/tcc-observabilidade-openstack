@@ -1,0 +1,16 @@
+route:
+  receiver: "default"
+  group_by: ["alertname"]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+
+receivers:
+  - name: "default"
+    # Exemplo de integração futura via e-mail:
+    # email_configs:
+    #   - to: "seu-email@dominio.com"
+    #     from: "alertmanager@dominio.com"
+    #     smarthost: "smtp.dominio.com:587"
+    #     auth_username: "seu-email@dominio.com"
+    #     auth_password: "sua-senha-de-app"

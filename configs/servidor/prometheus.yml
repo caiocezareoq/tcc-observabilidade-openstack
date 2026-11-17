@@ -1,0 +1,35 @@
+global:
+  scrape_interval: 15s     # ajuste na etapa de otimização (seção 4.7)
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["alertmanager:9093"]
+
+rule_files:
+  # - "alert_rules.yml"   # adicione aqui suas regras de alerta quando definir
+
+scrape_configs:
+  # Métricas exportadas pelo OTel Collector (vindas do OpenStack via OTLP)
+  - job_name: "otel-collector"
+    static_configs:
+      - targets: ["otel-collector:8889"]
+        labels:
+          host_name: "caio-cezar"   # todo dado nessa porta vem do nó OpenStack
+
+  - job_name: "otel-collector-host-aws"
+    static_configs:
+      - targets: ["otel-collector:8890"]
+        labels:
+          host_name: "observabilidade"
+
+  # Métricas internas de saúde do próprio Collector (uptime, cpu, scrape duration)
+  - job_name: "otel-collector-internal"
+    static_configs:
+      - targets: ["otel-collector:8888"]
+
+  # Métricas do próprio Prometheus
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
